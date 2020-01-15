@@ -1,0 +1,23 @@
+<TMPL_IF FIRST>
+<div id="change-<TMPL_VAR REV>" class="metadata table-responsive">
+    <table class="table table-bordered recentchanges-table">
+        <thead>
+            <tr>
+                <th width="25%">Message</th>
+                <th width="25%">Changed pages</th>
+                <th width="10%">Changed by</th>
+                <th width="10%">Commit type</th>
+                <th width="20%">Date</th>
+                <th width="10%">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+</TMPL_IF>
+            <tr>
+                <TMPL_VAR CONTENT>
+            </tr>
+<TMPL_IF LAST>
+        </tbody>
+    </table>
+</div>
+</TMPL_IF>

@@ -1,0 +1,41 @@
+<div class="col-lg-4 mb-4">
+<div class="card">
+
+  <TMPL_IF DEFAULT_IMG>
+	<div class="card-top-bbh" style="background-image: url(<TMPL_VAR DEFAULT_IMG>);"></div>
+  <TMPL_ELSE>
+  	<div class="card-top-bbh" style="background-image: url(/img/teaser_default.png);"></div>
+  </TMPL_IF>
+
+   <div class="card-body">
+
+   	<h5 class="card-title">
+    	 <TMPL_IF PERMALINK>
+    	   <a href="<TMPL_VAR PERMALINK>"><TMPL_VAR TITLE></a>
+    	 <TMPL_ELSE>
+    		<a href="<TMPL_VAR PAGEURL>"><TMPL_VAR TITLE></a>
+		 </TMPL_IF>
+		</h5>
+		<TMPL_IF EDITURL><a class="edit-icon" href="<TMPL_VAR EDITURL>" rel="nofollow"><i class="fa fa-edit"></i></a></TMPL_IF>    
+		
+		<TMPL_IF AUTHOR>
+		<h6 class="card-subtitle mb-2">
+		  <TMPL_IF AUTHORURL>
+			Por <a href="<TMPL_VAR AUTHORURL>"><TMPL_VAR AUTHOR></a>
+		  <TMPL_ELSE>
+			Por <TMPL_VAR AUTHOR>
+		  </TMPL_IF>
+		</h6>
+		</TMPL_IF>
+	   <p class="card-text"><small class="text-muted">Publicado: <TMPL_VAR CTIME></small><p>
+
+	</div>
+
+	<TMPL_IF TAGS>
+   <div class="card-footer">
+    	<small class="tags text-muted"><TMPL_LOOP TAGS><span><TMPL_VAR LINK></span> </TMPL_LOOP></small>
+ 	</div>
+   </TMPL_IF>
+
+</div>
+</div>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <TMPL_IF DYNAMIC>
+    <TMPL_IF FORCEBASEURL><base href="<TMPL_VAR FORCEBASEURL>" /><TMPL_ELSE>
+    <TMPL_IF BASEURL><base href="<TMPL_VAR BASEURL>" /></TMPL_IF>
+    </TMPL_IF>
+    </TMPL_IF>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title><TMPL_VAR TITLE></title>
+    <link rel="icon" href="<TMPL_VAR BASEURL><TMPL_VAR FAVICON>" type="image/x-icon" />
+
+    <!-- Custom fonts -->
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'> -->
+    <link href="https://fonts.googleapis.com/css?family=Alegreya:400,400i,700,700i&display=swap" rel="stylesheet"> 
+    
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/creative.css" rel="stylesheet">
+
+    <TMPL_IF LOCAL_CSS>
+    <link rel="stylesheet" href="<TMPL_VAR BASEURL><TMPL_VAR LOCAL_CSS>" type="text/css" />
+    <TMPL_ELSE>
+    <link rel="stylesheet" href="<TMPL_VAR BASEURL>local.css" type="text/css" />
+    </TMPL_IF>
+
+<TMPL_UNLESS DYNAMIC>
+	 <!-- unless dynamic items -->
+ <TMPL_IF EDITURL>
+	<link rel="alternate" type="application/x-wiki" title="Edit this page" href="<TMPL_VAR EDITURL>" />
+ </TMPL_IF>
+ <TMPL_IF FEEDLINKS><TMPL_VAR FEEDLINKS></TMPL_IF>
+ <TMPL_IF RELVCS><TMPL_VAR RELVCS></TMPL_IF>
+ <TMPL_IF META><TMPL_VAR META></TMPL_IF>
+ <TMPL_LOOP TRAILLOOP>
+ <TMPL_IF PREVPAGE>
+  <link rel="prev" href="<TMPL_VAR PREVURL>" title="<TMPL_VAR PREVTITLE>" />
+ </TMPL_IF>
+  <link rel="up" href="<TMPL_VAR TRAILURL>" title="<TMPL_VAR TRAILTITLE>" />
+ <TMPL_IF NEXTPAGE>
+  <link rel="next" href="<TMPL_VAR NEXTURL>" title="<TMPL_VAR NEXTTITLE>" />
+ </TMPL_IF>
+ </TMPL_LOOP>
+</TMPL_UNLESS>
+</head>
+<body class="<TMPL_IF DYNAMIC>editing</TMPL_IF> <TMPL_IF BODY_CLASS><TMPL_VAR BODY_CLASS></TMPL_IF>">
+
+   <!-- Standart Page -->
+
+   <!-- Navigation -->
+<TMPL_UNLESS DYNAMIC>
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+     <div class="container">
+       <a class="navbar-brand js-scroll-trigger" href="#page-top">Bibliohack blog</a>
+       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarResponsive">
+         <ul class="navbar-nav ml-auto">
+           <li class="nav-item">
+             <a class="nav-link js-scroll-trigger" href="/">Bibliohack.org</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link js-scroll-trigger" href="/#portfolio">Recursos</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link js-scroll-trigger" href="/#contact">Contacto</a>
+           </li>
+         </ul>
+       </div>
+     </div>
+   </nav>
+</TMPL_UNLESS>
+   <!-- Page -->
+
+	<div class="page">
+
+	   <div class="pageheader">
+         <div class="container">
+          <div class="title-wrapper">
+            <TMPL_IF PARENTLINKS>
+            <TMPL_UNLESS DYNAMIC>
+            <div class="bbh-breadcrumb">
+          	   <TMPL_LOOP PARENTLINKS><a href="<TMPL_VAR URL>"><TMPL_VAR PAGE></a> / </TMPL_LOOP>
+          	   <span class="active"><TMPL_VAR TITLE></span>
+            </div>
+            </TMPL_UNLESS>	
+            </TMPL_IF>	
+            <h1><TMPL_VAR TITLE></h1>
+            <!-- <TMPL_IF ISTRANSLATION>&nbsp;(<TMPL_VAR PERCENTTRANSLATED>%)</TMPL_IF> -->
+          </div>
+         </div>
+		</div>
+		<div id="pagebody">
+			<div class="container">
+			  	 <div id="default-media">
+               <TMPL_IF DYNAMIC>
+			  	     <TMPL_IF DEFAULT_VIDEO>
+     			  	   <div style="font-family: monospace;">
+                     default-video: <TMPL_VAR DEFAULT_VIDEO>
+                  </div>
+			  	     </TMPL_IF>		  	      
+  			  	     <TMPL_IF DEFAULT_IMG>               
+   			  	   <div style="font-family: monospace;">
+   			  	      <img style="max-width: 120px; margin-right: 15px;" src="<TMPL_VAR DEFAULT_IMG>" />default-img: <TMPL_VAR DEFAULT_IMG>
+   		  	      </div>
+			  	     </TMPL_IF>
+			  	     
+			  	   <TMPL_ELSE>
+
+		  	        <TMPL_IF DEFAULT_VIDEO>
+			  	      <div id="video-container" style="position:relative;">
+			  	         <i id="play-icon" class="fa fa-play-circle"></i>
+			  	         <video id="default-video" <TMPL_IF DEFAULT_VIDEO_POSTER>poster="<TMPL_VAR DEFAULT_VIDEO_POSTER>"</TMPL_IF>>
+			  	            <source src="<TMPL_VAR DEFAULT_VIDEO>" type="video/mp4">
+			  	         </video> 
+			  	      </div>
+			  	      <TMPL_IF DEFAULT_VIDEO_ALT>
+			  	      <p class="epigrafe"><TMPL_VAR DEFAULT_VIDEO_ALT></p>
+			  	      </TMPL_IF>
+			  	     <TMPL_ELSE>
+  			  	      <TMPL_IF DEFAULT_IMG>
+			  	       <img class="default-img" src="<TMPL_VAR DEFAULT_IMG>" />
+			  	       <TMPL_IF DEFAULT_IMG_ALT>
+			  	        <p class="epigrafe"><TMPL_VAR DEFAULT_IMG_ALT></p>
+			  	       </TMPL_IF>
+			  	      </TMPL_IF>
+			  	     </TMPL_IF>
+			  	     
+               </TMPL_IF>
+			  	 </div>
+			  <div id="content">
+			   <TMPL_VAR CONTENT>
+			  </div>
+			  
+			  <TMPL_VAR TRAILS>
+
+		      <div class="pagedate">
+		   	 Última edición: <TMPL_VAR MTIME>
+		   	 <!-- Created <TMPL_VAR CTIME> -->
+		      </div>
+			
+			  <TMPL_IF TAGS>
+				<div class="tags">Etiquetas:
+			   <TMPL_LOOP TAGS><span><TMPL_VAR LINK></span> </TMPL_LOOP>
+				</div>
+			  </TMPL_IF>
+			
+			  <TMPL_IF BACKLINKS>
+			   <div id="backlinks">Enlaces:
+			   <TMPL_LOOP BACKLINKS><a href="<TMPL_VAR URL>"><TMPL_VAR PAGE></a> </TMPL_LOOP>
+			   <TMPL_IF MORE_BACKLINKS>
+			   <span class="popup">...<span class="balloon">
+			    <TMPL_LOOP MORE_BACKLINKS><a href="<TMPL_VAR URL>"><TMPL_VAR PAGE></a></TMPL_LOOP>
+			   </span></span>
+			   </TMPL_IF>
+			  </TMPL_IF>
+		
+         </div>
+      </div>
+   </div>
+
+   <!-- Footer -->
+
+   <footer id="footer" class="pagefooter">
+   
+      
+      <TMPL_UNLESS DYNAMIC>
+      <nav id="pageinfo" class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+        <div class="navbar-nav mx-auto">
+   
+         <TMPL_IF COPYRIGHT>
+       	<span class="pagecopyright nav-item">
+         	<a name="pagecopyright"></a>
+            <TMPL_VAR COPYRIGHT>
+       	</span>
+         </TMPL_IF>
+   
+         <TMPL_IF LICENSE>
+       	<span class="pagelicense nav-item">
+         	<a name="pagelicense"></a>
+          	License: <TMPL_VAR LICENSE>
+       	</span>
+         </TMPL_IF>
+   	  </div>
+   	  </div>
+      </nav>
+   
+      <TMPL_IF EXTRAFOOTER><TMPL_VAR EXTRAFOOTER></TMPL_IF>
+      </TMPL_UNLESS>
+      <!-- from <TMPL_VAR WIKINAME> -->
+   </footer>
+
+   <!-- Sidebar -->
+
+   <TMPL_UNLESS DYNAMIC>
+   <nav id="sidebar">
+   
+      <!-- <div class="sidebar-header"><h3>Bootstrap Sidebar</h3></div> -->
+      <TMPL_IF HAVE_ACTIONS>
+      <ul class="list-unstyled components">
+        <TMPL_IF EDITURL>
+         <li class="nav-item"><a class="nav-link" href="<TMPL_VAR EDITURL>" rel="nofollow">Editar</a></li>
+        </TMPL_IF>
+        <TMPL_IF RECENTCHANGESURL>
+         <li class="nav-item"><a class="nav-link" href="<TMPL_VAR RECENTCHANGESURL>">RecentChanges</a></li>
+        </TMPL_IF>
+        <TMPL_IF HISTORYURL>
+         <li class="nav-item"><a class="nav-link" href="<TMPL_VAR HISTORYURL>">Historial</a></li>
+        </TMPL_IF>
+        <TMPL_IF GETSOURCEURL>
+         <li class="nav-item"><a class="nav-link" href="<TMPL_VAR GETSOURCEURL>">Código Fuente</a></li>
+        </TMPL_IF>
+        <TMPL_IF PREFSURL>
+         <li class="nav-item"><a class="nav-link" href="<TMPL_VAR PREFSURL>">Preferencias</a></li>
+        </TMPL_IF>
+        <TMPL_IF ACTIONS>
+         <a class="nav-item dropdown-toggle" href="#" 
+           id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" 
+           aria-expanded="false">Acciones</a>
+           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <TMPL_LOOP ACTIONS>
+               <TMPL_VAR ACTION>
+            </TMPL_LOOP>
+           </div>
+        </TMPL_IF>
+        <TMPL_IF COMMENTSLINK>
+         <li class="nav-item"><TMPL_VAR COMMENTSLINK></li>
+        <TMPL_ELSE>
+         <TMPL_IF DISCUSSIONLINK>
+         <li class="nav-item"><TMPL_VAR DISCUSSIONLINK></li>
+         </TMPL_IF>
+        </TMPL_IF>
+      </ul>
+      </TMPL_IF>
+
+      <ul class="list-unstyled components">
+      
+         <li><TMPL_VAR SIDEBAR></li>
+      
+         <TMPL_IF ENCLOSURE>
+         <p id="enclosure">
+            <a href="<TMPL_VAR ENCLOSURE>">Descargar</a>
+         </p>
+         </TMPL_IF>
+   
+         <TMPL_IF COMMENTS>
+         <li id="comments">
+          <TMPL_VAR COMMENTS>
+          <TMPL_IF ADDCOMMENTURL>
+            <p class="addcomment">
+       	      <a href="<TMPL_VAR ADDCOMMENTURL>">Publicar comentario</a>
+            </p>
+          <TMPL_ELSE>
+     	      <p class="addcomment">Comentarios cerrados.</p>
+          </TMPL_IF>
+         </li>
+         </TMPL_IF>
+   
+         <TMPL_IF OTHERLANGUAGES>
+         <li>
+         <a href="#otherlanguages" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+            Lenguajes:
+         </a>
+         <ul class="collapse list-unstyled" id="otherlanguages">
+      	 <TMPL_LOOP OTHERLANGUAGES>
+   	<li>
+   	   <a href="<TMPL_VAR URL>"><TMPL_VAR LANGUAGE></a>
+   	   <TMPL_IF MASTER>(master)<TMPL_ELSE>&nbsp;(<TMPL_VAR PERCENT>%)</TMPL_IF>
+   	</li>
+          </TMPL_LOOP>
+         </ul>
+         </li>
+         </TMPL_IF>
+      </ul>
+   </nav>
+
+   <button type="button" id="sidebarCollapse" class="btn btn-info" title="Toggle Sidebar">
+      <i class="fa fa-angle-double-left"></i>
+      <!-- <span>Toggle Sidebar</span> -->
+   </button>
+
+   </TMPL_UNLESS>
+
+
+   <!-- Scripts -->
+
+<TMPL_UNLESS DYNAMIC>
+	<!-- Bootstrap core JavaScript -->
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	
+	<!-- Plugin JavaScript -->
+	<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="/vendor/scrollreveal/scrollreveal.min.js"></script>
+	<script src="/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+	
+	<!-- Custom scripts for this template -->
+	<script src="/js/creative.js"></script>
+	
+   <script type="text/javascript">
+      $(document).ready(function () {
+         $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+         });
+      });
+		$('#content p img').each(function(){
+		   console.log("imagen!");
+		   var epigrafe =  $(this).attr('alt');
+		   console.log("epigrafe: "+epigrafe);
+			if ( epigrafe ){
+			   console.log("appending!");
+				$(this).after('<small class="epigrafe">'+epigrafe+'</small>');
+			}
+		});
+      <TMPL_IF DEFAULT_VIDEO>
+         $('#video-container').hover( 
+            function(){ 
+               $('#play-icon').addClass('visible');
+            }, 
+            function(){ 
+               $('#play-icon').removeClass('visible'); 
+            }
+         ).click(
+            function(){
+               var video = $('#default-video');
+               var icon = $('#play-icon');
+               if (video.get(0).paused) { 
+                  video.get(0).play();
+                  icon.removeClass('fa-play-circle');
+                  icon.addClass('fa-pause-circle');
+               } else {
+                  video.get(0).pause();
+                  icon.removeClass('fa-pause-circle');
+                  icon.addClass('fa-play-circle');
+               }
+            }
+         );
+      </TMPL_IF>
+   </script>
+</TMPL_UNLESS>
+<script>
+$(function () { 
+    $('input[name="_submit"]').addClass('btn btn-default'); 
+    $('textarea, input[type="text"]').addClass('form-control');
+    $('.toc').addClass('panel-body').wrap('<div class="panel panel-default"></div>')
+        .parent().prepend('<div class="panel-heading"><div class="panel-title">Table of Contents</div></div>');
+});
+
+</script>
+
+<!-- page.tmpl -->
+</body>
+</html>

@@ -1,0 +1,31 @@
+  <div id="carousel_bbh-<TMPL_VAR cid>" class="carousel slide" data-ride="carousel" data-interval="false">
+    <div class="carousel-inner" role="listbox">
+      <div id="slide_uno-<TMPL_VAR cid>" class="carousel-item active" style="background-image: url(<TMPL_VAR img1>);">
+        <div class="carousel-caption d-none d-md-block">
+          <p><TMPL_VAR txt1></p>
+        </div>
+      </div>
+      <div id="slide_dos-<TMPL_VAR cid>" class="carousel-item" style="background-image: url(<TMPL_VAR img2>);">
+        <div class="carousel-caption d-none d-md-block">
+          <p><TMPL_VAR txt2></p>
+        </div>
+      </div>
+
+	  <TMPL_IF NAME="img3">
+      <div id="slide_tres-<TMPL_VAR cid>" class="carousel-item" style="background-image: url(<TMPL_VAR img3>);">
+        <div class="carousel-caption d-none d-md-block">
+          <p><TMPL_VAR txt3></p>
+        </div>
+      </div>
+     </TMPL_IF>
+
+    </div>
+    <a class="carousel-control-prev" href="#carousel_bbh-<TMPL_VAR cid>" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel_bbh-<TMPL_VAR cid>" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>

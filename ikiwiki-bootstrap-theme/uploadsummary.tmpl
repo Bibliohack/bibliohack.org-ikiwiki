@@ -1,0 +1,13 @@
+<TMPL_IF ERROR>
+<p>
+<b>Error al intentra subir el archivo <TMPL_VAR SRC> a media: <TMPL_VAR DEST></b>
+<TMPL_VAR ERROR>
+</p>
+<TMPL_ELSE>
+<p>
+<b>Archivo <TMPL_VAR SRC> subido con exito a media: <TMPL_VAR DEST>.</b>
+</p>
+<p>
+Copie este codigo para incluir la imagen en la entrada:</p>
+<pre><TMPL_VAR LINKCODE></pre>
+</TMPL_IF>

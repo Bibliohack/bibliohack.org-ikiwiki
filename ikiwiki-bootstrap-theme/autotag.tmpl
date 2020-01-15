@@ -1,0 +1,7 @@
+[[!pagetemplate  template="page_postlist.tmpl" sylent]]
+[[!meta title="Etiqueta: <TMPL_VAR TAGNAME>"]]
+<div class="row">
+[[!inline pages="tagged(<TMPL_VAR TAG>)" show="10" actions="no" timeformat="%d/%m/%Y"
+feeds=no id="2"]]
+</div>
+[[!inline pages="tagged(<TMPL_VAR TAG>)" feedonly=yes feedshow=10]]
