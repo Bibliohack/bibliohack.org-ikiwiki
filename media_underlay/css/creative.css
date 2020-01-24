@@ -6,7 +6,9 @@ html {
 
 body {
   /* font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif; */
-  font-family: 'Alegreya', serif;
+  /* font-family: 'Alegreya', serif; */
+
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
   background-color: #f2f0e9;
 }
 
@@ -37,6 +39,8 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: bold;
 }
 
 .bg-primary {
@@ -47,8 +51,18 @@ h6 {
   background-color: #212529 !important;
 }
 
-.bg-light {
+.bg-light, #ejes {
   background-color: #f2f0e9 !important;
+  margin: 0;
+}
+
+#ejes {
+	padding-bottom: 5rem;
+}
+
+#top {
+	padding-bottom: 2rem;
+	font-family: 'Alegreya', serif;
 }
 
 #bibliohack_bkg {
@@ -61,7 +75,8 @@ h6 {
 }
 
 section {
-  padding: 8rem 0;
+	padding: 8rem 0;
+	background: white;
 }
 
 .section-heading {
@@ -191,7 +206,7 @@ body {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url("../img/estativo.jpg");
+/*  background-image: url("../img/estativo.jpg"); */
   /*
 ../img/mundaneum/37paulotlet.jpg
 ../img/mundaneum/mundaneum.jpg
@@ -201,12 +216,14 @@ header.masthead {
 ../img/mundaneum/telec2.jpg
 ../img/mundaneum/atlas.jpg
   */
+  /*
   background-position: top center;
   background-attachment: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  */
   /* background-size: contain; */
 }
 
@@ -235,7 +252,7 @@ header.masthead p {
 
 @media (min-width: 992px) {
   header.masthead {
-    height: 100vh;
+    height: 100vh; 
     min-height: 650px;
     padding-top: 0;
     padding-bottom: 0;
@@ -288,7 +305,7 @@ header.masthead p {
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category,
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
   padding: 0 15px;
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-family:  'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
@@ -327,7 +344,7 @@ header.masthead p {
   text-transform: uppercase;
   border: none;
   border-radius: 300px;
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-family:  'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .btn-xl {
@@ -371,6 +388,16 @@ header.masthead p {
 	margin: -50px 0 0 60px;
 }
 
+.navbar-brand {
+	text-indent: -10000px;
+	background-image: url(../img/logo-marca.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 233px;
+	background-position-y: center;
+}
+
+
 /* ------------------ */
 
 section.slide { 
@@ -389,20 +416,38 @@ section.slide {
 }
 
 .slide .carousel-caption {
-    right: 10%;
-    bottom: 5px;
-    left: 10%;
+    right: 0;
+    bottom: 0;
+    left: 0;
     z-index: 10;
-    padding-top: 20px;
-    padding-bottom: 10px;
+    padding: 0;
     color: #fff;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.slide .carousel-caption p  {
+	margin: 0;
+	color: #fff;
+	font-weight: 400;
+	padding: 8px 13px 9px;
 }
 
 .seccion-ejes {
 	margin-top: -2em;
 	margin-bottom: 5rem;
+}
+
+.seccion-ejes p {
+	margin-bottom: 0;
 }
 
 .ejes {
@@ -413,6 +458,7 @@ section.slide {
 .ejes-texto {
 	padding: 45px 60px !important;
 	font-size: 1.2rem;
+	font-weight: 300;
 }
 
 .ejes-texto h3 {
@@ -454,10 +500,12 @@ section.slide {
 
 .pageheader .container h1,
 .pageheader .container h2 {
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+	font-weight: bold;
+	line-height: 2.5rem;
+	font-size: 2.2rem;
 	color: #f2f0e9;
-	font-size: 3.5rem;
-   line-height: 3.5rem;
-   max-width: 800px;
+	max-width: 800px;   
 }
 
 .epigrafe {
@@ -483,15 +531,29 @@ section.slide {
 }
 
 #content {
-   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+   font-family: 'Gelasio', serif;
 	padding-bottom: 1.15rem;
-	max-width: 700px;
    color: #777;
+   font-size: 1.25rem;
 }
 
+#content > * {
+	max-width: 700px;
+}
+
+.unite-gallery.tiles {
+	max-width: 900px !important;
+	padding: 3rem 0 3rem;
+	margin-left: -3px;
+}
+
+
 #content big {
-   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+   font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
    font-size: 1.25rem;
+   font-weight: bold;
+   display: insline-block;
+   padding-bottom: 2rem;
 }
 #content img {
    max-width: 700px;
@@ -500,7 +562,7 @@ section.slide {
 #content small.epigrafe {
 	display: block;
 	margin-bottom: 2rem;
-   font-family: 'Alegreya', serif;
+   font-family: 'Open Sans', sans-serif; /* 'Alegreya', serif; */
 }
 #default-media img.default-img {
    max-width: 900px;
@@ -549,7 +611,7 @@ section.slide {
     color: gray;
     border-left: 3px solid #ddd;
     padding: 0 0 0 1rem;
-    font-family: 'Alegreya', serif;
+    font-family: 'Gelasio', serif;
 }
 #content hr {
 	max-width: unset;
@@ -572,13 +634,12 @@ section.slide {
 
 #content,
 #contet p {
-	font-size: 1.15rem;
+	font-size: 1.2rem;
 }
 
 #content h2,
 #content h3 {
-    font-family: 'Alegreya', serif;
-    /* font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; */
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; 
     font-weight: bold;
     margin-top: 2.5rem;
 }
@@ -845,6 +906,7 @@ form .btn.btn-default {
 
 .card-title {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: bold;
 }
 
 .card-top-bbh {
