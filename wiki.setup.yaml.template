@@ -1,13 +1,3 @@
-IKIDIR /opt/ikiwiki/bibliohack (PWDDIR)
-
-IKINAME bibliohack
-ADMIN_USER admin
-ADMIN_EMAIL minombresbond@gmail.com
-
-DESTDIR /var/www/bibliohack.org/ikiwiki_html
-URL http://new.bibliohack.org
-
-
 # IkiWiki::Setup::Yaml - YAML formatted setup file
 #
 # Setup file for ikiwiki.
