@@ -2,7 +2,7 @@
 <div class="card">
 
   <TMPL_IF DEFAULT_IMG>
-	<div class="card-top-bbh" style="background-image: url(<TMPL_VAR DEFAULT_IMG>);"></div>
+	<div class="card-top-bbh" style="background-image: url(<TMPL_VAR DEFAULT_IMG>_small.jpg);"></div>
   <TMPL_ELSE>
   	<div class="card-top-bbh" style="background-image: url(/img/teaser_default.png);"></div>
   </TMPL_IF>
@@ -11,9 +11,17 @@
 
    	<h5 class="card-title">
     	 <TMPL_IF PERMALINK>
+ 	     	<TMPL_IF SHORT_TITLE>
+    	   <a href="<TMPL_VAR PERMALINK>"><TMPL_VAR SHORT_TITLE></a>
+    	   <TMPL_ELSE>
     	   <a href="<TMPL_VAR PERMALINK>"><TMPL_VAR TITLE></a>
+    	   </TMPL_IF>
     	 <TMPL_ELSE>
-    		<a href="<TMPL_VAR PAGEURL>"><TMPL_VAR TITLE></a>
+ 	     	<TMPL_IF SHORT_TITLE>
+    	   <a href="<TMPL_VAR PAGEURL>"><TMPL_VAR SHORT_TITLE></a>
+    	   <TMPL_ELSE>
+    	   <a href="<TMPL_VAR PAGEURL>"><TMPL_VAR TITLE></a>
+    	   </TMPL_IF>
 		 </TMPL_IF>
 		</h5>
 		<TMPL_IF EDITURL><a class="edit-icon" href="<TMPL_VAR EDITURL>" rel="nofollow"><i class="fa fa-edit"></i></a></TMPL_IF>    
@@ -27,8 +35,10 @@
 		  </TMPL_IF>
 		</h6>
 		</TMPL_IF>
-	   <p class="card-text"><small class="text-muted">Publicado: <TMPL_VAR CTIME></small><p>
-
+		<TMPL_IF TEASERLINE>
+	    <p class="card-text teaserline"><TMPL_VAR TEASERLINE></p>
+		</TMPL_IF>
+	   <!-- <p class="card-text"><small class="text-muted publicado">Publicado: <TMPL_VAR CTIME></small></p> -->
 	</div>
 
 	<TMPL_IF TAGS>

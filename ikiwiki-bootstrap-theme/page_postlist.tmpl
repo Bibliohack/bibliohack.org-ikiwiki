@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <TMPL_IF DYNAMIC>
     <TMPL_IF FORCEBASEURL><base href="<TMPL_VAR FORCEBASEURL>" /><TMPL_ELSE>
@@ -7,19 +7,52 @@
     </TMPL_IF>
     </TMPL_IF>
 
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- HTML Meta Tags -->
     <title><TMPL_VAR TITLE></title>
-    <link rel="icon" href="<TMPL_VAR BASEURL><TMPL_VAR FAVICON>" type="image/x-icon" />
+    <meta name="description" content="<TMPL_VAR SUMMARY>" />
+    <meta name="title" content="<TMPL_VAR TITLE>" />
+    <meta name="keywords" content="Digitalización, Patrimonio, Open Access, OpenGLAM, Open Source, Software Libre, DIY Book Scanners, Archivos, Museos, Bibliotecas" />
+
+<TMPL_UNLESS DYNAMIC>
+
+    <!-- Google / Search Engine Tags -->
+    <link rel="canonical" href="<TMPL_VAR CONFIG-URL>/<TMPL_VAR PAGE>" />
+    <meta itemprop="name" content="Bibliohack - Tecnología Libre para Archivos, Bibliotecas y Museos">
+    <meta itemprop="description" content="<TMPL_VAR SUMMARY>">
+    <meta itemprop="image" content="<TMPL_VAR CONFIG-URL>/img/teaser_default.png">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="<TMPL_VAR CONFIG-URL>/<TMPL_VAR PAGE>">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<TMPL_VAR TITLE>">
+    <meta property="og:description" content="<TMPL_VAR SUMMARY>">
+    <meta property="og:image" content="<TMPL_VAR CONFIG-URL>/img/home/mendoza.jpg">
+    <meta property="og:site_name" content="Bibliohack">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="<TMPL_VAR TITLE>">
+    <meta name="twitter:description" content="<TMPL_VAR SUMMARY>">
+    <meta name="twitter:image" content="<TMPL_VAR CONFIG-URL>/img/teaser_default.png"> 
+    <meta name="twitter:site" content="@Bibliohack">
+
+</TMPL_UNLESS>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- Font Awesome -->
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom fonts -->
-    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <!-- <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'> -->
-    <link href="https://fonts.googleapis.com/css?family=Alegreya:400,400i,700,700i&display=swap" rel="stylesheet"> 
-    
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,400i,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700&display=swap" rel="stylesheet"> 
+   
     <!-- Bootstrap core CSS -->
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -56,23 +89,34 @@
 
    <!-- Navigation -->
 
-   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav_ns">
      <div class="container">
-       <a class="navbar-brand js-scroll-trigger" href="#page-top">Bibliohack blog</a>
-       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-       </button>
+       <a class="navbar-brand" href="/"><span class="logo-marca"></span><span class="logo-marca-w"></span></a>
+	    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+	      <div class="bar"></div>
+	      <div class="bar"></div>
+	      <div class="bar"></div>
+	    </button>
        <div class="collapse navbar-collapse" id="navbarResponsive">
          <ul class="navbar-nav ml-auto">
-           <li class="nav-item">
-             <a class="nav-link js-scroll-trigger" href="/">Bibliohack.org</a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link js-scroll-trigger" href="/#portfolio">Recursos</a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link js-scroll-trigger" href="/#contact">Contacto</a>
-           </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="/#top">¿Qué es Bibliohack?</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="/#ejes">¿Qué hacemos?</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="/#section-html">Proyectos</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="/#recursos">Recursos</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="/posts">Blog</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="/#contact"><i class="fa fa-envelope"></i></a>
+	        </li>
          </ul>
        </div>
      </div>
@@ -91,7 +135,11 @@
           	   <span class="active"><TMPL_VAR TITLE></span>
             </div>
             </TMPL_IF>	
-            <!-- <h1><TMPL_VAR TITLE></h1> -->
+            <TMPL_IF POSTLIST_HOME>	
+            <h1>Bibliohack Blog</h1>
+	    		<TMPL_ELSE>            
+            <h1><TMPL_VAR TITLE></h1>
+            </TMPL_IF>	
             <!-- <TMPL_IF ISTRANSLATION>&nbsp;(<TMPL_VAR PERCENTTRANSLATED>%)</TMPL_IF> -->
           </div>
          </div>
@@ -111,18 +159,7 @@
 			  </div>
 			  
 			  <TMPL_VAR TRAILS>
-
-		      <div class="pagedate">
-		   	 Última edición: <TMPL_VAR MTIME>
-		   	 <!-- Created <TMPL_VAR CTIME> -->
-		      </div>
-			
-			  <TMPL_IF TAGS>
-				<div class="tags">Etiquetas:
-			   <TMPL_LOOP TAGS><span><TMPL_VAR LINK></span> </TMPL_LOOP>
-				</div>
-			  </TMPL_IF>
-			
+<!--			
 			  <TMPL_IF BACKLINKS>
 			   <div id="backlinks">Enlaces:
 			   <TMPL_LOOP BACKLINKS><span href="<TMPL_VAR URL>"><TMPL_VAR PAGE></a> </TMPL_LOOP>
@@ -132,47 +169,55 @@
 			   </span></span>
 			   </TMPL_IF>
 			  </TMPL_IF>
-		
+-->		
          </div>
       </div>
    </div>
 
    <!-- Footer -->
 
-   <footer id="footer" class="pagefooter">
-   
-      
-      <TMPL_UNLESS DYNAMIC>
-      <nav id="pageinfo" class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-        <div class="navbar-nav mx-auto">
-   
-         <TMPL_IF COPYRIGHT>
-       	<span class="pagecopyright nav-item">
-         	<a name="pagecopyright"></a>
-            <TMPL_VAR COPYRIGHT>
-       	</span>
-         </TMPL_IF>
-   
-         <TMPL_IF LICENSE>
-       	<span class="pagelicense nav-item">
-         	<a name="pagelicense"></a>
-          	License: <TMPL_VAR LICENSE>
-       	</span>
-         </TMPL_IF>
-   	  </div>
-   	  </div>
-      </nav>
-   
-      <TMPL_IF EXTRAFOOTER><TMPL_VAR EXTRAFOOTER></TMPL_IF>
-      </TMPL_UNLESS>
-      <!-- from <TMPL_VAR WIKINAME> -->
-   </footer>
+	<footer id="footer" class="pagefooter">
+		<div class="container main">
+			<div class="row">
+			   <div class="col-lg-2">
+			   	<img class="logo-footer" src="/img/bh200-t.png">
+			   </div>
+			   <div class="col-lg-3">
+			   	<p class="leyenda"><b>Bibliohack</b>
+			   	<span>Tecnología libre <br>para Achivos, <br>Bibliotecas y Museos.</span></p>
+			   </div>
+			   <div class="col-lg-3">
+			   	<a class="nav-link" href="/#top">¿Qué es Bibliohack?</a>
+			   	<a class="nav-link" href="/#ejes">¿Qué hacemos?</a>
+			   	<a class="nav-link" href="/#section-html">Proyectos</a>
+			   	<a class="nav-link" href="http://codex.bibliohack.org" target="_blank">Codex</a>
+			   	<a class="nav-link" href="/posts">Novedades</a>
+			   </div>
+			   <div class="col-lg-3">
+			   	<a class="nav-link" href="https://twitter.com/bibliohack" target="_blank"
+			   		><i class="fa fa-twitter-square"></i> Twitter</a>
+			   	<a class="nav-link" href="https://facebook.com/bibliohack" target="_blank"
+			   		><i class="fa fa-facebook-square"></i> Facebook</a>
+			   	<a class="nav-link" href="https://github.com/bibliohack"
+			   		><i class="fa fa-github-square"></i> Github</a>
+			   	<a class="nav-link" href="#contact"><i class="fa fa-envelope"></i> Contacto</a>
+			   </div>		
+			</div><!-- /row -->
+		</div><!-- /container -->
+		
+		<div class="container bottom-line">
+			<div class="row text-center footer-extra">
+	       	<div class="col">         
+					Last edited <TMPL_VAR MTIME><!-- Created <TMPL_VAR CTIME> --> | Funciona con <a href="http://ikiwiki.info">Ikiwiki</a>
+				</div>
+			</div>		
+		</div>
+	</footer>
 
    <!-- Sidebar -->
 
    <TMPL_UNLESS DYNAMIC>
-   <nav id="sidebar">
+   <nav id="sidebar" class="edit-element">
    
       <!-- <div class="sidebar-header"><h3>Bootstrap Sidebar</h3></div> -->
       <!--CGIURL:  <TMPL_VAR CGIURL> -->
@@ -262,7 +307,7 @@
       </ul>
    </nav>
 
-   <button type="button" id="sidebarCollapse" class="btn btn-info" title="Toggle Sidebar">
+   <button type="button" id="sidebarCollapse" class="btn btn-info edit-element" title="Toggle Sidebar">
       <i class="fa fa-angle-double-left"></i>
       <!-- <span>Toggle Sidebar</span> -->
    </button>

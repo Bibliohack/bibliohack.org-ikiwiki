@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <TMPL_IF DYNAMIC>
     <TMPL_IF FORCEBASEURL><base href="<TMPL_VAR FORCEBASEURL>" /><TMPL_ELSE>
@@ -7,19 +7,52 @@
     </TMPL_IF>
     </TMPL_IF>
 
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- HTML Meta Tags -->
     <title><TMPL_VAR TITLE></title>
-    <link rel="icon" href="<TMPL_VAR BASEURL><TMPL_VAR FAVICON>" type="image/x-icon" />
+    <meta name="description" content="Digitalización y Transformación digital de bibliotecas, archivos y museos siguiendo los principios del acceso abierto y la tecnología libre" />
+    <meta name="title" content="Bibliohack - Digitalización y Tecnología Libre para Archivos, Bibliotecas y Museos" />
+    <meta name="keywords" content="Digitalización, Patrimonio, Open Access, OpenGLAM, Open Source, Software Libre, DIY Book Scanners, Archivos, Museos, Bibliotecas" />
+       
+<TMPL_UNLESS DYNAMIC>
+
+    <!-- Google / Search Engine Tags -->
+    <link rel="canonical" href="<TMPL_VAR CONFIG-URL>" />
+    <meta itemprop="name" content="Bibliohack - Tecnología Libre para Archivos, Bibliotecas y Museos">
+    <meta itemprop="description" content="Digitalización y Transformación digital de bibliotecas, archivos y museos siguiendo los principios del acceso abierto y la tecnología libre">
+    <meta itemprop="image" content="<TMPL_VAR CONFIG-URL>/img/teaser_default.png">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="<TMPL_VAR CONFIG-URL>">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Bibliohack - Tecnología Libre para Archivos, Bibliotecas y Museos">
+    <meta property="og:description" content="Digitalización y Transformación digital de bibliotecas, archivos y museos siguiendo los principios del acceso abierto y la tecnología libre">
+    <meta property="og:image" content="<TMPL_VAR CONFIG-URL>/img/home/mendoza.jpg">
+    <meta property="og:site_name" content="Bibliohack">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Bibliohack - Tecnología Libre para Archivos, Bibliotecas y Museos">
+    <meta name="twitter:description" content="Digitalización y Transformación digital de bibliotecas, archivos y museos siguiendo los principios del acceso abierto y la tecnología libre">
+    <meta name="twitter:image" content="<TMPL_VAR CONFIG-URL>/img/teaser_default.png"> 
+    <meta name="twitter:site" content="@Bibliohack">
+
+</TMPL_UNLESS>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- Font Awesome -->
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom fonts -->
-    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,700&display=swap" rel="stylesheet"> 
-    <!-- <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'> -->
-    <link href="https://fonts.googleapis.com/css?family=Alegreya:400,400i,700,700i&display=swap" rel="stylesheet"> 
-    
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,400i,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700&display=swap" rel="stylesheet"> 
+
     <!-- Bootstrap core CSS -->
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -50,31 +83,36 @@
     </TMPL_LOOP>
     </TMPL_UNLESS>
 </head>
-<body>
+<body class="landing-page">
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
   <div class="container">
-    <a class="navbar-brand js-scroll-trigger" href="#page-top">Bibliohack</a>
+    <a class="navbar-brand js-scroll-trigger" href="#page-top"><span class="logo-marca"></span><span class="logo-marca-w"></span></a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#top">Acerca de</a>
+          <a class="nav-link js-scroll-trigger" href="#top">¿Qué es Bibliohack?</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#ejes">Ejes</a>
+          <a class="nav-link js-scroll-trigger" href="#ejes">¿Qué hacemos?</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#section-html">Proyectos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#recursos">Recursos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#destacados">Proyectos</a>
+          <a class="nav-link" href="/posts">Blog</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
+          <a class="nav-link js-scroll-trigger" href="#contact"><i class="fa fa-envelope"></i></a>
         </li>
       </ul>
     </div>
@@ -88,61 +126,94 @@
      		<strong>BiblioHack - Tecnología Libre para Archivos, Bibliotecas y Museos</strong>
    		</h1>
    	</div>
-   <!-- <div class="container my-auto">
-
-       <div class="col-lg-10 mx-auto">
-
-         <hr>
-       </div>
-       <div class="col-lg-8 mx-auto">
-         <p class="text-faded mb-5">Tecnología Libre para Bibliotecas, Archivos y Museos</p>
-         <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Más info</a>
-       </div>
-     </div> -->
    </div>
+	<a class="scroll-downs js-scroll-trigger" href="#top"><div class="mousey"><div class="scroller"></div></div></a>
+   <div id="slider-epigrafes"><span>BiblioHack - Tecnología Libre para Archivos, Bibliotecas y Museos</span></div>
 </header>
 
 <TMPL_VAR CONTENT>
 
 <footer id="footer" class="pagefooter">
-	<div class="container">
-	<div class="row">
-   <div class="col-lg-8 mx-auto text-center">
-		<nav class="nav">
+	<div class="container main">
+		<div class="row justify-content-md-center">
+		   <div class="col-lg-2">
+		   	<img class="logo-footer" src="/img/bh200-t.png">
+		   </div>
+		   <div class="col-lg-3">
+		   	<p class="leyenda"><b>Bibliohack</b>
+		   	<span>Tecnología libre <br>para Achivos, <br>Bibliotecas y Museos.</span></p>
+		   </div>
+		   <div class="col-lg-3">
+		   	<a class="nav-link" href="#top">¿Qué es Bibliohack?</a>
+		   	<a class="nav-link" href="#ejes">¿Qué hacemos?</a>
+		   	<a class="nav-link" href="#section-html">Proyectos</a>
+		   	<a class="nav-link" href="http://codex.bibliohack.org" target="_blank">Codex</a>
+		   	<a class="nav-link" href="/posts">Novedades</a>
+		   </div>
+		   <div class="col-lg-3">
+		   	<a class="nav-link" href="https://twitter.com/bibliohack" target="_blank"
+		   		><i class="fa fa-twitter-square"></i> Twitter</a>
+		   	<a class="nav-link" href="https://facebook.com/bibliohack" target="_blank"
+		   		><i class="fa fa-facebook-square"></i> Facebook</a>
+		   	<a class="nav-link" href="https://github.com/bibliohack"
+		   		><i class="fa fa-github-square"></i> Github</a>
+		   	<a class="nav-link" href="#contact"><i class="fa fa-envelope"></i> Contacto</a>
+		   </div>		
+		</div><!-- /row -->
+	</div><!-- /container -->
+
+	<div class="container bottom-line">
+		<div class="row text-center footer-extra">
+       	<div class="col">         
+				Última edición <TMPL_VAR MTIME><!-- Created <TMPL_VAR CTIME> --> | Funciona con <a href="http://ikiwiki.info">Ikiwiki</a>
+			</div>
+		</div>		
+	</div>
+
+	<TMPL_UNLESS DYNAMIC>
+
+	<div class="container bottom-line">
+		<div class="row text-center footer-extra">
+      	<div class="col">         
+		
 		    <TMPL_IF HAVE_ACTIONS>
-		        <TMPL_IF EDITURL>
-		           <a class="nav-link" href="<TMPL_VAR EDITURL>" rel="nofollow">Edit</a>
-		        </TMPL_IF>
-		        <TMPL_IF RECENTCHANGESURL>
-		           <a class="nav-link" href="<TMPL_VAR RECENTCHANGESURL>">RecentChanges</a>
-		        </TMPL_IF>
+		    <span class="edit-element">
+		           <a href="<TMPL_VAR RECENTCHANGESURL>">RecentChanges</a>
 		        <TMPL_IF HISTORYURL>
-		           <a class="nav-link" href="<TMPL_VAR HISTORYURL>">History</a>
+		           | <a href="<TMPL_VAR HISTORYURL>">History</a>
 		        </TMPL_IF>
 		        <TMPL_IF GETSOURCEURL>
-		           <a class="nav-link" href="<TMPL_VAR GETSOURCEURL>">Source</a>
+		           | <a href="<TMPL_VAR GETSOURCEURL>">Source</a>
+		        </TMPL_IF>
+		        <TMPL_IF EDITURL>
+		           | <a href="<TMPL_VAR EDITURL>" rel="nofollow">Edit</a>
 		        </TMPL_IF>
 		        <TMPL_IF PREFSURL>
-		           <a class="nav-link" href="<TMPL_VAR PREFSURL>">Preferences</a>
+		           | <a href="<TMPL_VAR PREFSURL>">Preferences</a>
 		        </TMPL_IF>
 		        <TMPL_IF ACTIONS>
+		           |
 		           <TMPL_LOOP ACTIONS>
 		              <TMPL_VAR ACTION>
 		           </TMPL_LOOP>
 		        </TMPL_IF>
 		        <TMPL_IF COMMENTSLINK>
-		           <TMPL_VAR COMMENTSLINK>
-		        <TMPL_ELSE>
+		        <!--   <TMPL_VAR COMMENTSLINK> -->
+		        <TMPL_ELSE> 
 		           <TMPL_IF DISCUSSIONLINK>
-		              <TMPL_VAR DISCUSSIONLINK>
+		              | <TMPL_VAR DISCUSSIONLINK>
 		           </TMPL_IF>
 		        </TMPL_IF>
+			 </span>
 		    </TMPL_IF>
-		</nav>
-		
-		<TMPL_UNLESS DYNAMIC>
-		<nav id="pageinfo">
-			
+			</div>
+		</div>		
+	</div>
+	
+	</TMPL_UNLESS>
+	
+	<!-- from <TMPL_VAR WIKINAME> -->
+	<!--	
 			<TMPL_VAR TRAILS>
 			
 			<TMPL_IF TAGS>
@@ -185,22 +256,7 @@
 				License: <TMPL_VAR LICENSE>
 			</div>
 			</TMPL_IF>
-			
-			<div class="pagedate">
-				Last edited <TMPL_VAR MTIME>
-				<!-- Created <TMPL_VAR CTIME> -->
-			</div>
-		
-		</nav>
-	</div>		
-	</div>
-	</div>
-	<br/><br/><br/><br/>
-		
-	<TMPL_IF EXTRAFOOTER><TMPL_VAR EXTRAFOOTER></TMPL_IF>
-	</TMPL_UNLESS>
-	<!-- from <TMPL_VAR WIKINAME> -->
-
+		-->
 </footer>
 
 <TMPL_UNLESS DINAMIC>
@@ -240,7 +296,7 @@ $(function() {
 	    '/img/home/mendoza.jpg',
 	    '/img/home/0020.jpg',
 	    '/img/home/0040.jpg',
-	    '/img/home/0045.jpg',
+	    /* '/img/home/0045.jpg', */
 	    '/img/home/0050.jpg',
 	    '/img/home/0055.jpg',
 	    '/img/home/cnba_biblio.jpg',	    
@@ -251,6 +307,53 @@ $(function() {
 	    '/img/home/0090.jpg',
 	    '/img/home/0100.jpg',
 	    '/img/home/standart.jpg'
+	    ],
+	    captions: [
+		    [
+		    	'Bibliohack - Tecnología libre para Archivos, Museos y Bibliotecas.'
+		    ],
+		    [
+		    	'Prueba y demostración de uso del estativo cenital. Museo Moderno, 2018.'
+		    ],
+		    [
+		    	'Digitalización de libros con dispositivo en "V". Biblioteca Aysa, 2018.'
+		    ],
+/*		    [
+		    	'Capacitación para el SECRIT/CONICET. Digitalización de revista científica. 2017.'
+		  	 ], */
+		    [
+		    	'Jornada sobre acceso y patrimonio en el Moderno. '+
+		    	'De fondo, estativo plano de Bibliohack. 2019.'
+		    ],
+		    [
+		    	'Matías hablando sobre Creative Commons y Bibliohack. '+
+		    	'Universidad Torcuato Di Tella, 2019.'
+		    ],
+		    [
+		    	'Escaner en "V" realizado con listones de madera de pino. Colegio Nacional Buenos Aires, 2013.'
+		    ],
+		    [
+		    	'Piezas de corte laser en MDF para un estativo en V aún sin armar.'
+		    ],
+		    [
+		    	'Jornadas sobre Acceso, Universidad Torcuato Di Tella. 2019.'
+		    ],
+		    [
+		    	'Capacitación para el INCIHUSA/CONICET en el Archivo del Agua. Mendoza, 2018.'
+		    ],
+		    [
+		    	'Charla sobre propiedad intelecual y restricciones al aceso en el Moderno. Buenos Aires, 2018.'
+		    ],
+		    [
+		    	'Primer encuentro OpenGLAM de Argentina. Buenos Aires 2017.'
+		    ],
+		    [
+		    	'Dispositivos de digitalización (Plano y en V) en la Academia Nacional de '+
+		    	'Historia. Buenos Aires, 2019.'
+		    ],
+		    [
+		    	'Adaptación del "modelo estandar" de diybookscanner.org. La PLata, 2012.'
+	     	 ]
 	    ]
 	});
 });

@@ -1,0 +1,26 @@
+<section class="bg-light" id="contact">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-9 mx-auto text-center">
+				<h2 class="section-heading">Contacto</h2>
+				<hr class="my-4">
+				<form action="send_mail.pl" method="post" accept-charset="UTF-8" style="padding: 3rem;">
+				  <div class="form-group">
+				    <label for="InputName">Nombre</label>
+				    <input name="name" type="text" class="form-control" id="InputName" aria-describedby="nameHelp">
+				  </div>
+				  <div class="form-group">
+				    <label for="InputEmail1">Email de contacto</label>
+				    <input name="email" type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp">
+				    <small id="emailHelp" class="form-text text-muted">Nunca compartiremos tu email con nadie.</small>
+				  </div>
+				  <div class="form-group">
+				    <label for="FormControlTextarea1">Mensaje</label>
+				    <textarea name="message" class="form-control" id="FormControlTextarea1" rows="3"></textarea>
+				  </div>
+				  <button type="submit" class="btn btn-primary">Enviar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>

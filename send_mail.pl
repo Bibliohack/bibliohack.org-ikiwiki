@@ -1,0 +1,89 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use CGI;
+use CGI::Carp qw(fatalsToBrowser);
+use YAML::XS 'LoadFile';
+use JSON::Parse ':all';
+
+use Capture::Tiny qw/ capture /;
+
+my $config = LoadFile('/opt/ikiwiki/bibliohack/mailgun.yaml') or die "ERROR: No se pudo cargar el archivo de configuración";
+my $host = $config->{host}; 
+my $key = $config->{key}; 
+my $target_mail = $config->{target_mail}; 
+my $from_mail = $config->{from_mail};
+
+my $q = new CGI;
+print $q->header();
+
+# Output stylesheet, heading etc
+output_top($q);
+
+if ($q->param()) {
+
+   my $email = $q->param('email');
+   my $name = $q->param('name');
+   my $message = $q->param('message');
+
+	use Email::Valid;
+	my $email_valid = Email::Valid->address($email);
+	
+	if( $email_valid ) {
+   
+	   if ($name eq "" && $message eq "" ) {
+			print $q->div( "Debe completar al menos alguno de los campos (Nombre o Mensaje)" );
+	   } else {
+			my $to_id = $target_mail;
+			my $from = "Formulario de contacto de bibliohack.org <$from_mail>";
+			my $body = "Nombre: ".$name."\n"."Email de contacto: ".$email."\n"."Mensaje:\n".$message."\n";
+			my $subject = "Mensaje de ".$name;
+			my @args = (    '-v', '-s', '--user', "$key",
+			                '-F', "from=$from",
+			                '-F', "to=$to_id",
+			                '-F', "replyto=$email",
+			                '-F', "subject=$subject",
+			                '-F', "text=$body",
+			                "$host",
+			);
+			my ($stdout,$stderr,$exit) = capture {
+			           system 'curl', @args;
+			};
+			#print "stdout:\n".$stdout."\n";
+			#print "stderr:\n".$stderr."\n";
+			#print "exit:\n".$exit."\n";
+			if($exit) { 
+			   print $q->div("Error! no se pudo enviar el mensaje!");
+			} else {
+   			if (valid_json ($stdout)) {
+      			my $json_out = parse_json( $stdout );
+      			if(exists($json_out->{'message'})) {
+      			   if($json_out->{'message'} == 'Queued. Thank you.') {
+      			      print $q->div( "Mensaje enviado! <a href='/' title='Regresar al inicio'>Volver</a>" );
+      			   } else { print $q->div("No se pudo enviar el mensaje! [Error 1]"); }
+      			} else { print $q->div("No se pudo enviar el mensaje! [Error 2]"); }
+   			} else { print $q->div("No se pudo enviar el mensaje! [Error 3]"); }
+			}
+	   }
+	} else {
+		print $q->div( "Email no valido: ".$email );
+	}
+
+} else {
+	print $q->div( "No se recibieron parametros del formulario! Mensaje no enviado <a href='/' title='Regresar al inicio'>Volver</a>" );
+}
+
+
+# Output footer and end html
+print $q->end_html;
+
+exit 0;
+
+# Outputs the start html tag, stylesheet and heading
+sub output_top($) {
+    my ($q) = @_;
+    print $q->start_html(
+        -title => 'Bibliohack: contacto',
+        -bgcolor => 'white');
+}

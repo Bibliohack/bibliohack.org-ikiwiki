@@ -28,11 +28,13 @@
 
   // Collapse Navbar
   var navbarCollapse = function() {
-    if ($("#mainNav").offset().top > 100) {
-      $("#mainNav").addClass("navbar-shrink");
-    } else {
-      $("#mainNav").removeClass("navbar-shrink");
-    }
+    if ($("#mainNav").length != 0) {
+	    if ($("#mainNav").offset().top > 100) {
+	      $("#mainNav").addClass("navbar-shrink");
+	    } else {
+	      $("#mainNav").removeClass("navbar-shrink");
+	    }
+	  }
   };
   // Collapse now if page is not at top
   navbarCollapse();
@@ -71,6 +73,18 @@
       tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
     }
   });
+
+	$(window).bind('keydown', function(event) {
+	    if (event.ctrlKey || event.metaKey) {
+	        switch (String.fromCharCode(event.which).toLowerCase()) {
+	        case 'e':
+	            event.preventDefault();
+	            // alert('ctrl-e');
+					$('.edit-element').toggleClass("visible");
+	            break;
+	        }
+	    }
+	});
 })(jQuery); // End of use strict
 
 /**
@@ -86,13 +100,14 @@
         this.each(function () {
 
             var $container = $(this)
+            var $caption_container = $("#slider-epigrafes span")
             var $currentLayer = null
             var $nextLayer = null
             var currentImageIndex = 0
             var nextImageIndex = 0
             var preloadedImages = []
             var config = {
-                delay: 5000,
+                delay: 6000,
                 transitionDuration: 3000,
                 onBeforeTransition: null,
                 onAfterTransition: null,
@@ -136,6 +151,21 @@
                 return $newLayer
             }
 
+            function showCaption(index) {
+            	$caption_container.html( 
+            		config.captions[index][0] )
+           		.animate({
+             	    opacity: 1,
+             	    // bottom: "+=25"
+           		}, 200)
+            }
+            function hideCaption(index) {
+            	if(index > 0){
+	            	$caption_container.delay(1000).animate(
+	            		{opacity: 0}, 200
+	            	)
+            	}
+            }
             function nextImage(transition) {
                 currentImageIndex = nextImageIndex
                 nextImageIndex++
@@ -150,12 +180,14 @@
                 if (config.onBeforeTransition) {
                     config.onBeforeTransition(currentImageIndex)
                 }
+                hideCaption(currentImageIndex)
                 if (transition) {
                     $currentLayer.fadeIn(config.transitionDuration, function () {
                         if (config.onAfterTransition) {
                             config.onAfterTransition(currentImageIndex)
                         }
                         preLoadImage(nextImageIndex)
+                        showCaption(currentImageIndex)
                         $nextLayer = addLayer(config.images[nextImageIndex])
                         cleanUp()
                     })
@@ -187,19 +219,21 @@
 
 				// stop / start cycle by mainNav offset position
 			   var checkOffset = function() {
-			   	if ($("#mainNav").offset().top > 500) {
-			      	if(cycle !== false) { 
-			      		clearInterval(cycle) 
-				      	cycle = false
-				      	console.log("Cycle clear")
-			      	}
-			    	} else {
-			   	   if (cycle === false) {
-				      	console.log("Cycle start")
-	                  cycle = setInterval(function () {
-		                  nextImage(true)
-		               }, config.delay + config.transitionDuration)
-			      	}
+			   	if ($("#mainNav").length != 0) {
+				   	if ($("#mainNav").offset().top > 500) {
+				      	if(cycle !== false) { 
+				      		clearInterval(cycle) 
+					      	cycle = false
+					      	console.log("Cycle clear")
+				      	}
+				    	} else {
+				   	   if (cycle === false) {
+					      	console.log("Cycle start")
+		                  cycle = setInterval(function () {
+			                  nextImage(true)
+			               }, config.delay + config.transitionDuration)
+				      	}
+				    	}
 			    	}
 				}
 				
