@@ -1,0 +1,92 @@
+<head>
+    <TMPL_IF DYNAMIC>
+    <TMPL_IF FORCEBASEURL><base href="<TMPL_VAR FORCEBASEURL>" /><TMPL_ELSE>
+    <TMPL_IF BASEURL><base href="<TMPL_VAR BASEURL>" /></TMPL_IF>
+    </TMPL_IF>
+    </TMPL_IF>
+
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- HTML Meta Tags -->
+    <title><TMPL_VAR TITLE></title>
+    <meta name="description" content="<TMPL_VAR SUMMARY>" />
+    <meta name="title" content="<TMPL_VAR TITLE>" />
+    <meta name="keywords" content="<TMPL_VAR SUMMARY>" />
+       
+<TMPL_UNLESS DYNAMIC>
+
+    <!-- Google / Search Engine Tags -->
+    <link rel="canonical" href="<TMPL_VAR CONFIG-URL>/<TMPL_VAR PAGE>" />
+    <meta itemprop="name" content="<TMPL_VAR TITLE>">
+    <meta itemprop="description" content="<TMPL_VAR SUMMARY>">
+    <meta itemprop="image" content="<TMPL_VAR CONFIG-URL><TMPL_VAR DEFAULT_IMG>">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="<TMPL_VAR CONFIG-URL>/<TMPL_VAR PAGE>">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="<TMPL_VAR TITLE>">
+    <meta property="og:description" content="<TMPL_VAR SUMMARY>">
+    <meta property="og:image" content="<TMPL_VAR CONFIG-URL><TMPL_VAR DEFAULT_IMG>">
+    <meta property="og:site_name" content="Bibliohack">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="<TMPL_VAR TITLE>">
+    <meta name="twitter:description" content="<TMPL_VAR SUMMARY>">
+    <meta name="twitter:image" content="<TMPL_VAR CONFIG-URL><TMPL_VAR DEFAULT_IMG>"> 
+    <meta name="twitter:site" content=" @Bibliohack">
+
+    <meta property="article:published_time" content="<TMPL_VAR DATE>" />
+
+</TMPL_UNLESS>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    
+    <!-- Font Awesome -->
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom fonts -->
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,400i,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700&display=swap" rel="stylesheet"> 
+	
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <TMPL_IF UNITE_GALLERY>
+    <!-- Unitegallery CSS -->
+	 <link rel='stylesheet' href='/vendor/unitegallery/css/unite-gallery.css' type='text/css' /> 
+	 <link rel='stylesheet' href='/vendor/unitegallery/themes/default/ug-theme-default.css' type='text/css' /> 
+    </TMPL_IF>
+    
+    <!-- Custom styles for this template -->
+    <link href="/css/creative.css" rel="stylesheet">
+
+    <TMPL_IF LOCAL_CSS>
+    <link rel="stylesheet" href="<TMPL_VAR BASEURL><TMPL_VAR LOCAL_CSS>" type="text/css" />
+    <TMPL_ELSE>
+    <link rel="stylesheet" href="<TMPL_VAR BASEURL>local.css" type="text/css" />
+    </TMPL_IF>
+
+<TMPL_UNLESS DYNAMIC>
+	 <!-- unless dynamic items -->
+ <TMPL_IF EDITURL>
+	<link rel="alternate" type="application/x-wiki" title="Edit this page" href="<TMPL_VAR EDITURL>" />
+ </TMPL_IF>
+ <TMPL_IF FEEDLINKS><TMPL_VAR FEEDLINKS></TMPL_IF>
+ <TMPL_IF RELVCS><TMPL_VAR RELVCS></TMPL_IF>
+ <TMPL_IF META><TMPL_VAR META></TMPL_IF>
+ <TMPL_LOOP TRAILLOOP>
+ <TMPL_IF PREVPAGE>
+  <link rel="prev" href="<TMPL_VAR PREVURL>" title="<TMPL_VAR PREVTITLE>" />
+ </TMPL_IF>
+  <link rel="up" href="<TMPL_VAR TRAILURL>" title="<TMPL_VAR TRAILTITLE>" />
+ <TMPL_IF NEXTPAGE>
+  <link rel="next" href="<TMPL_VAR NEXTURL>" title="<TMPL_VAR NEXTTITLE>" />
+ </TMPL_IF>
+ </TMPL_LOOP>
+</TMPL_UNLESS>
+</head>

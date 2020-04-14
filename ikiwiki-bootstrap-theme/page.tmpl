@@ -1,101 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <TMPL_IF DYNAMIC>
-    <TMPL_IF FORCEBASEURL><base href="<TMPL_VAR FORCEBASEURL>" /><TMPL_ELSE>
-    <TMPL_IF BASEURL><base href="<TMPL_VAR BASEURL>" /></TMPL_IF>
-    </TMPL_IF>
-    </TMPL_IF>
-
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- HTML Meta Tags -->
-    <title><TMPL_VAR TITLE></title>
-    <meta name="description" content="<TMPL_VAR SUMMARY>" />
-    <meta name="title" content="<TMPL_VAR TITLE>" />
-    <meta name="keywords" content="<TMPL_VAR SUMMARY>" />
-       
-<TMPL_UNLESS DYNAMIC>
-
-    <!-- Google / Search Engine Tags -->
-    <link rel="canonical" href="<TMPL_VAR CONFIG-URL>/<TMPL_VAR PAGE>" />
-    <meta itemprop="name" content="<TMPL_VAR TITLE>">
-    <meta itemprop="description" content="<TMPL_VAR SUMMARY>">
-    <meta itemprop="image" content="<TMPL_VAR CONFIG-URL><TMPL_VAR DEFAULT_IMG>">
-
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="<TMPL_VAR CONFIG-URL>/<TMPL_VAR PAGE>">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="<TMPL_VAR TITLE>">
-    <meta property="og:description" content="<TMPL_VAR SUMMARY>">
-    <meta property="og:image" content="<TMPL_VAR CONFIG-URL><TMPL_VAR DEFAULT_IMG>">
-    <meta property="og:site_name" content="Bibliohack">
-
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="<TMPL_VAR TITLE>">
-    <meta name="twitter:description" content="<TMPL_VAR SUMMARY>">
-    <meta name="twitter:image" content="<TMPL_VAR CONFIG-URL><TMPL_VAR DEFAULT_IMG>"> 
-    <meta name="twitter:site" content=" @Bibliohack">
-
-    <meta property="article:published_time" content="<TMPL_VAR DATE>" />
-
-</TMPL_UNLESS>
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    
-    <!-- Font Awesome -->
-    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- Custom fonts -->
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,400i,600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700&display=swap" rel="stylesheet"> 
-	
-    <!-- Bootstrap core CSS -->
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <TMPL_IF UNITE_GALLERY>
-    <!-- Unitegallery CSS -->
-	 <link rel='stylesheet' href='/vendor/unitegallery/css/unite-gallery.css' type='text/css' /> 
-	 <link rel='stylesheet' href='/vendor/unitegallery/themes/default/ug-theme-default.css' type='text/css' /> 
-    </TMPL_IF>
-    
-    <!-- Custom styles for this template -->
-    <link href="/css/creative.css" rel="stylesheet">
-
-    <TMPL_IF LOCAL_CSS>
-    <link rel="stylesheet" href="<TMPL_VAR BASEURL><TMPL_VAR LOCAL_CSS>" type="text/css" />
-    <TMPL_ELSE>
-    <link rel="stylesheet" href="<TMPL_VAR BASEURL>local.css" type="text/css" />
-    </TMPL_IF>
-
-<TMPL_UNLESS DYNAMIC>
-	 <!-- unless dynamic items -->
- <TMPL_IF EDITURL>
-	<link rel="alternate" type="application/x-wiki" title="Edit this page" href="<TMPL_VAR EDITURL>" />
- </TMPL_IF>
- <TMPL_IF FEEDLINKS><TMPL_VAR FEEDLINKS></TMPL_IF>
- <TMPL_IF RELVCS><TMPL_VAR RELVCS></TMPL_IF>
- <TMPL_IF META><TMPL_VAR META></TMPL_IF>
- <TMPL_LOOP TRAILLOOP>
- <TMPL_IF PREVPAGE>
-  <link rel="prev" href="<TMPL_VAR PREVURL>" title="<TMPL_VAR PREVTITLE>" />
- </TMPL_IF>
-  <link rel="up" href="<TMPL_VAR TRAILURL>" title="<TMPL_VAR TRAILTITLE>" />
- <TMPL_IF NEXTPAGE>
-  <link rel="next" href="<TMPL_VAR NEXTURL>" title="<TMPL_VAR NEXTTITLE>" />
- </TMPL_IF>
- </TMPL_LOOP>
-</TMPL_UNLESS>
-</head>
+<html lang="<TMPL_IF LANG_CODE><TMPL_VAR LANG_CODE><TMPL_ELSE>es</TMPL_IF>">
+<TMPL_INCLUDE NAME="includes/header.tmpl">
 <body class="<TMPL_IF DYNAMIC>editing<TMPL_ELSE>post</TMPL_IF><TMPL_IF BODY_CLASS> <TMPL_VAR BODY_CLASS></TMPL_IF>">
-
    <!-- Standart Page -->
-
    <!-- Navigation -->
 <TMPL_UNLESS DYNAMIC>
    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -108,6 +15,26 @@
 	    </button>
        <div class="collapse navbar-collapse" id="navbarResponsive">
          <ul class="navbar-nav ml-auto">
+			<TMPL_IF LANG_EN>
+	        <li class="nav-item">
+	          <a class="nav-link" href="/#top">About Bibliohack</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="/#ejes">What we do</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="/#section-html">Projects</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="/#recursos">Resources</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="/posts/index.en.html">Blog</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="/#contact"><i class="fa fa-envelope"></i></a>
+	        </li>
+			<TMPL_ELSE>
 	        <li class="nav-item">
 	          <a class="nav-link" href="/#top">¿Qué es Bibliohack?</a>
 	        </li>
@@ -121,11 +48,12 @@
 	          <a class="nav-link" href="/#recursos">Recursos</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link" href="/posts">Blog</a>
+	          <a class="nav-link" href="/posts/index.es.html">Blog</a>
 	        </li>
 	        <li class="nav-item">
 	          <a class="nav-link" href="/#contact"><i class="fa fa-envelope"></i></a>
 	        </li>
+         </TMPL_IF>
          </ul>
        </div>
      </div>
@@ -249,7 +177,6 @@
    </div>
 
    <!-- Footer -->
-
 	<footer id="footer" class="pagefooter ">
 		<div class="container main">
 			<div class="row justify-content-center">
@@ -257,15 +184,28 @@
 			   	<img class="logo-footer" src="/img/bh200-t.png">
 			   </div>
 			   <div class="col-lg-3">
+	   		  <TMPL_IF LANG_EN>
+			   	<p class="leyenda"><b>Bibliohack</b>
+			   	<span>Opensource Technology <br>for Libraries, <br>Archives and Museums.</span></p>
+			     <TMPL_ELSE>
 			   	<p class="leyenda"><b>Bibliohack</b>
 			   	<span>Tecnología libre <br>para Achivos, <br>Bibliotecas y Museos.</span></p>
+			     </TMPL_IF>
 			   </div>
 			   <div class="col-lg-3">
+	   		  <TMPL_IF LANG_EN>
+			   	<a class="nav-link" href="/#top">About Bibliohack</a>
+			   	<a class="nav-link" href="/#ejes">What We Do</a>
+			   	<a class="nav-link" href="/#section-html">Projects</a>
+			   	<a class="nav-link" href="http://codex.bibliohack.org" target="_blank">Codex</a>
+			   	<a class="nav-link" href="/posts/index.en.html">Blog</a>
+			     <TMPL_ELSE>
 			   	<a class="nav-link" href="/#top">¿Qué es Bibliohack?</a>
 			   	<a class="nav-link" href="/#ejes">¿Qué hacemos?</a>
 			   	<a class="nav-link" href="/#section-html">Proyectos</a>
 			   	<a class="nav-link" href="http://codex.bibliohack.org" target="_blank">Codex</a>
-			   	<a class="nav-link" href="/posts">Novedades</a>
+			   	<a class="nav-link" href="/posts/index.es.html">Novedades</a>
+			     </TMPL_IF>
 			   </div>
 			   <div class="col-lg-3">
 			   	<a class="nav-link" href="https://twitter.com/bibliohack" target="_blank"
@@ -274,14 +214,22 @@
 			   		><i class="fa fa-facebook-square"></i> Facebook</a>
 			   	<a class="nav-link" href="https://github.com/bibliohack"
 			   		><i class="fa fa-github-square"></i> Github</a>
+	   		  <TMPL_IF LANG_EN>
+			   	<a class="nav-link" href="#contact"><i class="fa fa-envelope"></i> Contact</a>
+			     <TMPL_ELSE>
 			   	<a class="nav-link" href="#contact"><i class="fa fa-envelope"></i> Contacto</a>
+			     </TMPL_IF>
 			   </div>		
 			</div><!-- /row -->
 		</div><!-- /container -->
 		<div class="container bottom-line">
 			<div class="row text-center footer-extra">
-	       	<div class="col">         
-					Last edited <TMPL_VAR MTIME><!-- Created <TMPL_VAR CTIME> --> | Funciona con <a href="http://ikiwiki.info">Ikiwiki</a>
+	       	<div class="col">
+	   		  <TMPL_IF LANG_EN>
+					Last edited <TMPL_VAR MTIME><!-- Created <TMPL_VAR CTIME> --> | Powered by <a href="http://ikiwiki.info">Ikiwiki</a>
+			     <TMPL_ELSE>
+					Última edicióm <TMPL_VAR MTIME><!-- Creado <TMPL_VAR CTIME> --> | Funciona con <a href="http://ikiwiki.info">Ikiwiki</a>
+			     </TMPL_IF>
 				</div>
 			</div>		
 		</div>

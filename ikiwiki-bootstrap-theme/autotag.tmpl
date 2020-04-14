@@ -1,5 +1,5 @@
 [[!pagetemplate  template="page_postlist.tmpl" sylent]]
-[[!meta title="Etiqueta: <TMPL_VAR TAGNAME>"]]
+[[!meta title="<TMPL_IF ISTRANSLATION>Tag<TMPL_ELSE>Etiqueta</TMPL_IF>: <TMPL_VAR TAGNAME>"]]
 <div class="row">
 [[!inline pages="tagged(<TMPL_VAR TAG>)" show="10" actions="no" timeformat="%d/%m/%Y"
 feeds=no id="2"]]
