@@ -1,125 +1,12 @@
 <!DOCTYPE html>
 <html lang="<TMPL_IF LANG_CODE><TMPL_VAR LANG_CODE><TMPL_ELSE>es</TMPL_IF>">
-<head>
-    <TMPL_IF DYNAMIC>
-    <TMPL_IF FORCEBASEURL><base href="<TMPL_VAR FORCEBASEURL>" /><TMPL_ELSE>
-    <TMPL_IF BASEURL><base href="<TMPL_VAR BASEURL>" /></TMPL_IF>
-    </TMPL_IF>
-    </TMPL_IF>
-
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- HTML Meta Tags -->
-    <title><TMPL_VAR TITLE></title>
-    <meta name="description" content="<TMPL_VAR SUMMARY>" />
-    <meta name="title" content="<TMPL_VAR TITLE>" />
-    <meta name="keywords" content="Digitalización, Patrimonio, Open Access, OpenGLAM, Open Source, Software Libre, DIY Book Scanners, Archivos, Museos, Bibliotecas" />
-
-<TMPL_UNLESS DYNAMIC>
-
-    <!-- Google / Search Engine Tags -->
-    <link rel="canonical" href="<TMPL_VAR CONFIG-URL>/<TMPL_VAR PAGE>" />
-    <meta itemprop="name" content="Bibliohack - Tecnología Libre para Archivos, Bibliotecas y Museos">
-    <meta itemprop="description" content="<TMPL_VAR SUMMARY>">
-    <meta itemprop="image" content="<TMPL_VAR CONFIG-URL>/img/teaser_default.png">
-
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="<TMPL_VAR CONFIG-URL>/<TMPL_VAR PAGE>">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="<TMPL_VAR TITLE>">
-    <meta property="og:description" content="<TMPL_VAR SUMMARY>">
-    <meta property="og:image" content="<TMPL_VAR CONFIG-URL>/img/home/mendoza.jpg">
-    <meta property="og:site_name" content="Bibliohack">
-    
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="<TMPL_VAR TITLE>">
-    <meta name="twitter:description" content="<TMPL_VAR SUMMARY>">
-    <meta name="twitter:image" content="<TMPL_VAR CONFIG-URL>/img/teaser_default.png"> 
-    <meta name="twitter:site" content="@Bibliohack">
-
-</TMPL_UNLESS>
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-
-    <!-- Font Awesome -->
-    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- Custom fonts -->
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,400i,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700&display=swap" rel="stylesheet"> 
-   
-    <!-- Bootstrap core CSS -->
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="/css/creative.css" rel="stylesheet">
-
-    <TMPL_IF LOCAL_CSS>
-    <link rel="stylesheet" href="<TMPL_VAR BASEURL><TMPL_VAR LOCAL_CSS>" type="text/css" />
-    <TMPL_ELSE>
-    <link rel="stylesheet" href="<TMPL_VAR BASEURL>local.css" type="text/css" />
-    </TMPL_IF>
-
-<TMPL_UNLESS DYNAMIC>
- <TMPL_IF EDITURL>
-	<link rel="alternate" type="application/x-wiki" title="Edit this page" href="<TMPL_VAR EDITURL>" />
- </TMPL_IF>
- <TMPL_IF FEEDLINKS><TMPL_VAR FEEDLINKS></TMPL_IF>
- <TMPL_IF RELVCS><TMPL_VAR RELVCS></TMPL_IF>
- <TMPL_IF META><TMPL_VAR META></TMPL_IF>
- <TMPL_LOOP TRAILLOOP>
- <TMPL_IF PREVPAGE>
-  <link rel="prev" href="<TMPL_VAR PREVURL>" title="<TMPL_VAR PREVTITLE>" />
- </TMPL_IF>
-  <link rel="up" href="<TMPL_VAR TRAILURL>" title="<TMPL_VAR TRAILTITLE>" />
- <TMPL_IF NEXTPAGE>
-  <link rel="next" href="<TMPL_VAR NEXTURL>" title="<TMPL_VAR NEXTTITLE>" />
- </TMPL_IF>
- </TMPL_LOOP>
-</TMPL_UNLESS>
-</head>
-<body class="postlist">
-
+<TMPL_INCLUDE NAME="includes/head.tmpl">
+<body class="postlist <TMPL_VAR BODY_CLASS>">
+	<hr id="page-top" style="display:none;">
    <!-- Postlist Page -->
-
    <!-- Navigation -->
-
-   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav_ns">
-     <div class="container">
-       <a class="navbar-brand" href="/"><span class="logo-marca"></span><span class="logo-marca-w"></span></a>
-	    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-	      <div class="bar"></div>
-	      <div class="bar"></div>
-	      <div class="bar"></div>
-	    </button>
-       <div class="collapse navbar-collapse" id="navbarResponsive">
-         <ul class="navbar-nav ml-auto">
-	        <li class="nav-item">
-	          <a class="nav-link" href="/#top">¿Qué es Bibliohack?</a>
-	        </li>
-	        <li class="nav-item">
-	          <a class="nav-link" href="/#ejes">¿Qué hacemos?</a>
-	        </li>
-	        <li class="nav-item">
-	          <a class="nav-link" href="/#section-html">Proyectos</a>
-	        </li>
-	        <li class="nav-item">
-	          <a class="nav-link" href="/#recursos">Recursos</a>
-	        </li>
-	        <li class="nav-item">
-	          <a class="nav-link" href="/posts">Blog</a>
-	        </li>
-	        <li class="nav-item">
-	          <a class="nav-link" href="/#contact"><i class="fa fa-envelope"></i></a>
-	        </li>
-         </ul>
-       </div>
-     </div>
+   <nav id="mainNav_ns" class="topmenu navbar navbar-expand-lg navbar-light fixed-top">
+	<TMPL_INCLUDE NAME="includes/top_menu.tmpl">
    </nav>
 
    <!-- Page -->
@@ -132,7 +19,7 @@
             <TMPL_IF PARENTLINKS>
             <div class="bbh-breadcrumb">
           	   <TMPL_LOOP PARENTLINKS><a href="<TMPL_VAR URL>"><TMPL_VAR PAGE></a> / </TMPL_LOOP>
-          	   <span class="active"><TMPL_VAR TITLE></span>
+           	   <span class="active"><TMPL_IF HASHTAG>#<TMPL_VAR HASHTAG><TMPL_ELSE><TMPL_VAR TITLE></TMPL_IF></span>
             </div>
             </TMPL_IF>	
             <TMPL_IF POSTLIST_HOME>	
@@ -141,6 +28,11 @@
             <h1><TMPL_VAR TITLE></h1>
             </TMPL_IF>	
             <!-- <TMPL_IF ISTRANSLATION>&nbsp;(<TMPL_VAR PERCENTTRANSLATED>%)</TMPL_IF> -->
+            <TMPL_UNLESS DYNAMIC>
+             <TMPL_IF SUMMARY>
+            <div class="summary"><TMPL_VAR SUMMARY></div>
+             </TMPL_IF>	
+            </TMPL_UNLESS>
           </div>
          </div>
 		</div>
@@ -175,145 +67,36 @@
    </div>
 
    <!-- Footer -->
-
-	<footer id="footer" class="pagefooter">
-		<div class="container main">
-			<div class="row">
-			   <div class="col-lg-2">
-			   	<img class="logo-footer" src="/img/bh200-t.png">
-			   </div>
-			   <div class="col-lg-3">
-			   	<p class="leyenda"><b>Bibliohack</b>
-			   	<span>Tecnología libre <br>para Achivos, <br>Bibliotecas y Museos.</span></p>
-			   </div>
-			   <div class="col-lg-3">
-			   	<a class="nav-link" href="/#top">¿Qué es Bibliohack?</a>
-			   	<a class="nav-link" href="/#ejes">¿Qué hacemos?</a>
-			   	<a class="nav-link" href="/#section-html">Proyectos</a>
-			   	<a class="nav-link" href="http://codex.bibliohack.org" target="_blank">Codex</a>
-			   	<a class="nav-link" href="/posts">Novedades</a>
-			   </div>
-			   <div class="col-lg-3">
-			   	<a class="nav-link" href="https://twitter.com/bibliohack" target="_blank"
-			   		><i class="fa fa-twitter-square"></i> Twitter</a>
-			   	<a class="nav-link" href="https://facebook.com/bibliohack" target="_blank"
-			   		><i class="fa fa-facebook-square"></i> Facebook</a>
-			   	<a class="nav-link" href="https://github.com/bibliohack"
-			   		><i class="fa fa-github-square"></i> Github</a>
-			   	<a class="nav-link" href="#contact"><i class="fa fa-envelope"></i> Contacto</a>
-			   </div>		
-			</div><!-- /row -->
-		</div><!-- /container -->
-		
-		<div class="container bottom-line">
-			<div class="row text-center footer-extra">
-	       	<div class="col">         
-					Last edited <TMPL_VAR MTIME><!-- Created <TMPL_VAR CTIME> --> | Funciona con <a href="http://ikiwiki.info">Ikiwiki</a>
-				</div>
-			</div>		
-		</div>
-	</footer>
+	<TMPL_INCLUDE NAME="includes/footer.tmpl">	
 
    <!-- Sidebar -->
-
    <TMPL_UNLESS DYNAMIC>
    <nav id="sidebar" class="edit-element">
-   
       <!-- <div class="sidebar-header"><h3>Bootstrap Sidebar</h3></div> -->
-      <!--CGIURL:  <TMPL_VAR CGIURL> -->
-		<form  action="/ikiwiki.cgi" method="get">	
-		<input type="hidden" name="do" value="blog" />
-		<input type="hidden" name="from" value="posts" />
-		<input type="hidden" name="subpage" value="1" />
-		Nuevo post: 
-		<input name="title" size="20" />
-		<input type="submit" value="Crear" />
+	  <TMPL_UNLESS ISTRANSLATION>
+		<form action="/ikiwiki.cgi" method="get">	
+		  <input type="hidden" name="do" value="blog" />
+		  <input type="hidden" name="from" value="posts" />
+		  <input type="hidden" name="subpage" value="1" />
+		  <div class="form-group">
+			<label><TMPL_IF LANG_EN>New post<TMPL_ELSE>Nuevo post</TMPL_IF>:</label>
+			<input class="form-control" name="title" />
+		  </div>
+ 		  <input type="submit" class="btn btn-primary" value="<TMPL_IF LANG_EN>Create<TMPL_ELSE>Crear</TMPL_IF>" />
 		</form>
-		<TMPL_IF HAVE_ACTIONS>
-      <ul class="list-unstyled components">
-        <TMPL_IF EDITURL>
-         <li class="nav-item"><a class="nav-link" href="<TMPL_VAR EDITURL>" rel="nofollow">Editar</a></li>
-        </TMPL_IF>
-        <TMPL_IF RECENTCHANGESURL>
-         <li class="nav-item"><a class="nav-link" href="<TMPL_VAR RECENTCHANGESURL>">RecentChanges</a></li>
-        </TMPL_IF>
-        <TMPL_IF HISTORYURL>
-         <li class="nav-item"><a class="nav-link" href="<TMPL_VAR HISTORYURL>">Historial</a></li>
-        </TMPL_IF>
-        <TMPL_IF GETSOURCEURL>
-         <li class="nav-item"><a class="nav-link" href="<TMPL_VAR GETSOURCEURL>">Código Fuente</a></li>
-        </TMPL_IF>
-        <TMPL_IF PREFSURL>
-         <li class="nav-item"><a class="nav-link" href="<TMPL_VAR PREFSURL>">Preferencias</a></li>
-        </TMPL_IF>
-        <TMPL_IF ACTIONS>
-         <a class="nav-item dropdown-toggle" href="#" 
-           id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" 
-           aria-expanded="false">Acciones</a>
-           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <TMPL_LOOP ACTIONS>
-               <TMPL_VAR ACTION>
-            </TMPL_LOOP>
-           </div>
-        </TMPL_IF>
-        <TMPL_IF COMMENTSLINK>
-         <li class="nav-item"><TMPL_VAR COMMENTSLINK></li>
-        <TMPL_ELSE>
-         <TMPL_IF DISCUSSIONLINK>
-         <li class="nav-item"><TMPL_VAR DISCUSSIONLINK></li>
-         </TMPL_IF>
-        </TMPL_IF>
-      </ul>
-      </TMPL_IF>
-
-      <ul class="list-unstyled components">
-      
-         <li><TMPL_VAR SIDEBAR></li>
-      
-         <TMPL_IF ENCLOSURE>
-         <p id="enclosure">
-            <a href="<TMPL_VAR ENCLOSURE>">Descargar</a>
-         </p>
-         </TMPL_IF>
-   
-         <TMPL_IF COMMENTS>
-         <li id="comments">
-          <TMPL_VAR COMMENTS>
-          <TMPL_IF ADDCOMMENTURL>
-            <p class="addcomment">
-       	      <a href="<TMPL_VAR ADDCOMMENTURL>">Publicar comentario</a>
-            </p>
-          <TMPL_ELSE>
-     	      <p class="addcomment">Comentarios cerrados.</p>
-          </TMPL_IF>
-         </li>
-         </TMPL_IF>
-   
-         <TMPL_IF OTHERLANGUAGES>
-         <li>
-         <a href="#otherlanguages" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-            Lenguajes:
-         </a>
-         <ul class="collapse list-unstyled" id="otherlanguages">
-      	 <TMPL_LOOP OTHERLANGUAGES>
-   	<li>
-   	   <a href="<TMPL_VAR URL>"><TMPL_VAR LANGUAGE></a>
-   	   <TMPL_IF MASTER>(master)<TMPL_ELSE>&nbsp;(<TMPL_VAR PERCENT>%)</TMPL_IF>
-   	</li>
-          </TMPL_LOOP>
-         </ul>
-         </li>
-         </TMPL_IF>
-      </ul>
+	  </TMPL_UNLESS>
+	  <TMPL_IF HAVE_ACTIONS>
+		<!-- sidebar actions -->
+      <TMPL_INCLUDE NAME="includes/sidebar_actions.tmpl">
+	  </TMPL_IF>
+		<!-- sidebar components -->
+      <TMPL_INCLUDE NAME="includes/sidebar_components.tmpl">
    </nav>
-
    <button type="button" id="sidebarCollapse" class="btn btn-info edit-element" title="Toggle Sidebar">
       <i class="fa fa-angle-double-left"></i>
       <!-- <span>Toggle Sidebar</span> -->
    </button>
-
    </TMPL_UNLESS>
-
 
    <!-- Scripts -->
 
@@ -346,7 +129,6 @@ $(function () {
         .parent().prepend('<div class="panel-heading"><div class="panel-title">Table of Contents</div></div>');
 });
 </script>
-
-<!-- page.tmpl -->
+<!-- page_postlist.tmpl -->
 </body>
 </html>

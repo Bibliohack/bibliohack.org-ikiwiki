@@ -14,29 +14,32 @@
     <meta name="description" content="<TMPL_VAR SUMMARY>" />
     <meta name="title" content="<TMPL_VAR TITLE>" />
     <meta name="keywords" content="<TMPL_VAR SUMMARY>" />
-       
+
+        
 <TMPL_UNLESS DYNAMIC>
+
+	 <TMPL_INCLUDE NAME="ga.tmpl">	
 
     <!-- Google / Search Engine Tags -->
     <link rel="canonical" href="<TMPL_VAR CONFIG-URL>/<TMPL_VAR PAGE>" />
-    <meta itemprop="name" content="<TMPL_VAR TITLE>">
+    <meta itemprop="name" content="<TMPL_IF META_TITLE><TMPL_VAR META_TITLE><TMPL_ELSE><TMPL_VAR TITLE></TMPL_IF>">
     <meta itemprop="description" content="<TMPL_VAR SUMMARY>">
-    <meta itemprop="image" content="<TMPL_VAR CONFIG-URL><TMPL_VAR DEFAULT_IMG>">
+    <meta itemprop="image" content="<TMPL_VAR CONFIG-URL><TMPL_IF DEFAULT_IMG><TMPL_VAR DEFAULT_IMG><TMPL_ELSE>/img/teaser_default.png</TMPL_IF>">
 
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="<TMPL_VAR CONFIG-URL>/<TMPL_VAR PAGE>">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="<TMPL_VAR TITLE>">
+    <meta property="og:title" content="<TMPL_IF META_TITLE><TMPL_VAR META_TITLE><TMPL_ELSE><TMPL_VAR TITLE></TMPL_IF>">
     <meta property="og:description" content="<TMPL_VAR SUMMARY>">
-    <meta property="og:image" content="<TMPL_VAR CONFIG-URL><TMPL_VAR DEFAULT_IMG>">
+    <meta property="og:image" content="<TMPL_VAR CONFIG-URL><TMPL_IF DEFAULT_IMG><TMPL_VAR DEFAULT_IMG><TMPL_ELSE>/img/teaser_default.png</TMPL_IF>">
     <meta property="og:site_name" content="Bibliohack">
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="<TMPL_VAR TITLE>">
+    <meta name="twitter:title" content="<TMPL_IF META_TITLE><TMPL_VAR META_TITLE><TMPL_ELSE><TMPL_VAR TITLE></TMPL_IF>">
     <meta name="twitter:description" content="<TMPL_VAR SUMMARY>">
-    <meta name="twitter:image" content="<TMPL_VAR CONFIG-URL><TMPL_VAR DEFAULT_IMG>"> 
-    <meta name="twitter:site" content=" @Bibliohack">
+    <meta name="twitter:image" content="<TMPL_VAR CONFIG-URL><TMPL_IF DEFAULT_IMG><TMPL_VAR DEFAULT_IMG><TMPL_ELSE>/img/teaser_default.png</TMPL_IF>"> 
+    <meta name="twitter:site" content="@Bibliohack">
 
     <meta property="article:published_time" content="<TMPL_VAR DATE>" />
 
@@ -67,8 +70,6 @@
 
     <TMPL_IF LOCAL_CSS>
     <link rel="stylesheet" href="<TMPL_VAR BASEURL><TMPL_VAR LOCAL_CSS>" type="text/css" />
-    <TMPL_ELSE>
-    <link rel="stylesheet" href="<TMPL_VAR BASEURL>local.css" type="text/css" />
     </TMPL_IF>
 
 <TMPL_UNLESS DYNAMIC>

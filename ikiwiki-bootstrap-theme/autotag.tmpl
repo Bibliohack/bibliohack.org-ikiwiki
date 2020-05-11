@@ -1,7 +1,12 @@
 [[!pagetemplate  template="page_postlist.tmpl" sylent]]
-[[!meta title="<TMPL_IF ISTRANSLATION>Tag<TMPL_ELSE>Etiqueta</TMPL_IF>: <TMPL_VAR TAGNAME>"]]
+[[!meta title="<TMPL_VAR TAGNAME>"]]
+[[!field 
+	summary="Publicaciones relacionadas con <TMPL_VAR TAGNAME>"
+	body_class="taglist"
+	hashtag="#<TMPL_VAR TAGNAME>"
+]]
 <div class="row">
-[[!inline pages="tagged(<TMPL_VAR TAG>)" show="10" actions="no" timeformat="%d/%m/%Y"
+[[!inline pages="tagged(<TMPL_VAR TAG>) and lang(es) and field_null(hide)" show="30" actions="no" timeformat="%d/%m/%Y"
 feeds=no id="2"]]
 </div>
-[[!inline pages="tagged(<TMPL_VAR TAG>)" feedonly=yes feedshow=10]]
+[[!inline pages="tagged(<TMPL_VAR TAG>) and lang(es) and field_null(hide)" feedonly=yes feedshow=30]]

@@ -1,0 +1,40 @@
+      <ul class="list-unstyled components">
+      
+         <li><TMPL_VAR SIDEBAR></li>
+      
+         <TMPL_IF ENCLOSURE>
+         <p id="enclosure">
+            <a href="<TMPL_VAR ENCLOSURE>">Descargar</a>
+         </p>
+         </TMPL_IF>
+   
+         <TMPL_IF COMMENTS>
+         <li id="comments">
+          <TMPL_VAR COMMENTS>
+          <TMPL_IF ADDCOMMENTURL>
+            <p class="addcomment">
+       	      <a href="<TMPL_VAR ADDCOMMENTURL>">Publicar comentario</a>
+            </p>
+          <TMPL_ELSE>
+     	      <p class="addcomment">Comentarios cerrados.</p>
+          </TMPL_IF>
+         </li>
+         </TMPL_IF>
+   
+         <TMPL_IF OTHERLANGUAGES>
+         <li>
+          <a href="#otherlanguages" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+            Lenguajes:
+          </a>
+          <ul class="collapse list-unstyled" id="otherlanguages">
+      	 <TMPL_LOOP OTHERLANGUAGES>
+   	     <li>
+   	      <a href="<TMPL_VAR URL>"><TMPL_VAR LANGUAGE></a>
+   	      <TMPL_IF MASTER>(master)</TMPL_IF>
+   	     </li>
+          </TMPL_LOOP>
+          </ul>
+         </li>
+         </TMPL_IF>
+      </ul>
+      

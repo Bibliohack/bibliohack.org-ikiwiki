@@ -2,6 +2,7 @@
   "use strict"; // Start of use strict
 
   // Smooth scrolling using jQuery easing
+  
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       var target = $(this.hash);
@@ -14,25 +15,32 @@
       }
     }
   });
-
+  
   // Closes responsive menu when a scroll trigger link is clicked
   $('.js-scroll-trigger').click(function() {
     $('.navbar-collapse').collapse('hide');
   });
 
   // Activate scrollspy to add active class to navbar items on scroll
-  $('body').scrollspy({
-    target: '#mainNav',
-    offset: 57
-  });
+//  $('body').scrollspy({
+//    target: '#mainNav',
+//    offset: 57
+//  });
 
   // Collapse Navbar
   var navbarCollapse = function() {
+    var shrink = false;
     if ($("#mainNav").length != 0) {
 	    if ($("#mainNav").offset().top > 100) {
-	      $("#mainNav").addClass("navbar-shrink");
+
+	         $("#mainNav").addClass("navbar-shrink");
+	         shrink = true;
+
 	    } else {
-	      $("#mainNav").removeClass("navbar-shrink");
+
+	      	$("#mainNav").removeClass("navbar-shrink");
+	         shrink = false;
+
 	    }
 	  }
   };
@@ -42,6 +50,7 @@
   $(window).scroll(navbarCollapse);
 
   // Scroll reveal calls
+/*
   window.sr = ScrollReveal();
   sr.reveal('.sr-icons', {
     duration: 600,
@@ -57,7 +66,7 @@
     scale: 0.3,
     distance: '0px'
   }, 300);
-
+*/
   // Magnific popup calls
   $('.popup-gallery').magnificPopup({
     delegate: 'a',
@@ -132,7 +141,7 @@
             function preLoadImage(index) {
                 if (!preloadedImages[index]) {
                     preloadedImages[index] = new Image()
-                    preloadedImages[index].src = config.images[index]
+                    preloadedImages[index].src = config.items[index].img
                 }
             }
 
@@ -153,7 +162,7 @@
 
             function showCaption(index) {
             	$caption_container.html( 
-            		config.captions[index][0] )
+            		config.items[index].caption )
            		.animate({
              	    opacity: 1,
              	    // bottom: "+=25"
@@ -169,13 +178,13 @@
             function nextImage(transition) {
                 currentImageIndex = nextImageIndex
                 nextImageIndex++
-                if (nextImageIndex >= config.images.length) {
+                if (nextImageIndex >= config.items.length) {
                     nextImageIndex = 0
                 }
                 if ($nextLayer) {
                     $currentLayer = $nextLayer
                 } else {
-                    $currentLayer = addLayer(config.images[currentImageIndex])
+                    $currentLayer = addLayer(config.items[currentImageIndex].img)
                 }
                 if (config.onBeforeTransition) {
                     config.onBeforeTransition(currentImageIndex)
@@ -188,7 +197,7 @@
                         }
                         preLoadImage(nextImageIndex)
                         showCaption(currentImageIndex)
-                        $nextLayer = addLayer(config.images[nextImageIndex])
+                        $nextLayer = addLayer(config.items[nextImageIndex].img)
                         cleanUp()
                     })
                 } else {
@@ -197,7 +206,7 @@
                         config.onAfterTransition(currentImageIndex)
                         setTimeout(function () {
                             preLoadImage(nextImageIndex)
-                            $nextLayer = addLayer(config.images[nextImageIndex])
+                            $nextLayer = addLayer(config.items[nextImageIndex].img)
                             cleanUp()
                         }, config.delay / 2)
                     }

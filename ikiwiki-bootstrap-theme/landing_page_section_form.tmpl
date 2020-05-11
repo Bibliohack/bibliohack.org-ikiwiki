@@ -1,26 +1,26 @@
-<section class="bg-light" id="contact">
+<div class="section-block bg-light" id="<TMPL_VAR SECTION_ID>">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-9 mx-auto text-center">
-				<h2 class="section-heading">Contacto</h2>
-				<hr class="my-4">
+				<h2 class="section-heading"><TMPL_VAR TITLE></h2>
+				<hr>
 				<form action="send_mail.pl" method="post" accept-charset="UTF-8" style="padding: 3rem;">
 				  <div class="form-group">
-				    <label for="InputName">Nombre</label>
+				    <label for="InputName"><TMPL_VAR LABEL_NAME></label>
 				    <input name="name" type="text" class="form-control" id="InputName" aria-describedby="nameHelp">
 				  </div>
 				  <div class="form-group">
-				    <label for="InputEmail1">Email de contacto</label>
+				    <label for="InputEmail1"><TMPL_VAR LABEL_EMAIL></label>
 				    <input name="email" type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp">
-				    <small id="emailHelp" class="form-text text-muted">Nunca compartiremos tu email con nadie.</small>
+				    <small id="emailHelp" class="form-text text-muted"><TMPL_VAR LABEL_EMAIL_DISCLAIMER></small>
 				  </div>
 				  <div class="form-group">
-				    <label for="FormControlTextarea1">Mensaje</label>
+				    <label for="FormControlTextarea1"><TMPL_VAR LABEL_MESSAGE></label>
 				    <textarea name="message" class="form-control" id="FormControlTextarea1" rows="3"></textarea>
 				  </div>
-				  <button type="submit" class="btn btn-primary">Enviar</button>
+				  <button type="submit" class="btn btn-primary"><TMPL_VAR LABEL_BUTTOM></button>
 				</form>
 			</div>
 		</div>
 	</div>
-</section>
+</div>

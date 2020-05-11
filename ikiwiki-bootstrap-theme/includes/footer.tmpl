@@ -1,0 +1,142 @@
+<footer id="footer" class="pagefooter ">
+	<div class="container main">
+		<div class="row justify-content-center">
+		   <div class="col-lg-2">
+		   	<img class="logo-footer" src="/img/bh200-t.png">
+		   </div>
+		   <div class="col-lg-3">
+   		  <TMPL_IF LANG_EN>
+		   	<p class="leyenda"><b>Bibliohack</b>
+		   	<span>Opensource Technology <br>for Libraries, Archives <br>and Museums.</span></p>
+		     <TMPL_ELSE>
+		   	<p class="leyenda"><b>Bibliohack</b>
+		   	<span>Tecnología libre <br>para Achivos, <br>Bibliotecas y Museos.</span></p>
+		     </TMPL_IF>
+		   </div>
+		   <div class="col-lg-3">
+   		  <TMPL_IF LANG_EN>
+		   	<a class="nav-link" href="/en/#about_bibliohack">About Bibliohack</a>
+		   	<a class="nav-link" href="/en/#what_we_do">What We Do</a>
+		   	<a class="nav-link" href="/en/#section-html">Projects</a>
+		   	<a class="nav-link" href="http://codex.bibliohack.org" target="_blank">Codex</a>
+		   	<a class="nav-link" href="/posts/index.en.html">Blog</a>
+		     <TMPL_ELSE>
+		   	<a class="nav-link" href="/#que_es_bibliohack">¿Qué es Bibliohack?</a>
+		   	<a class="nav-link" href="/#que_hacemos">¿Qué hacemos?</a>
+		   	<a class="nav-link" href="/#proyectos">Proyectos</a>
+		   	<a class="nav-link" href="http://codex.bibliohack.org" target="_blank">Codex</a>
+		   	<a class="nav-link" href="/posts/">Novedades</a>
+		     </TMPL_IF>
+		   </div>
+		   <div class="col-lg-3">
+		   	<a class="nav-link" href="https://twitter.com/bibliohack" target="_blank"
+		   		><i class="fa fa-twitter-square"></i> Twitter</a>
+		   	<a class="nav-link" href="https://facebook.com/bibliohack" target="_blank"
+		   		><i class="fa fa-facebook-square"></i> Facebook</a>
+		   	<a class="nav-link" href="https://github.com/bibliohack"
+		   		><i class="fa fa-github-square"></i> Github</a>
+   		  <TMPL_IF LANG_EN>
+		   	<a class="nav-link" href="/en/#contact"><i class="fa fa-envelope"></i> Contact</a>
+		     <TMPL_ELSE>
+		   	<a class="nav-link" href="/#contacto"><i class="fa fa-envelope"></i> Contacto</a>
+		     </TMPL_IF>
+		   </div>		
+		</div><!-- /row -->
+	</div><!-- /container -->
+	<div class="container bottom-line">
+		<div class="row text-center footer-extra">
+       	<div class="col">
+   		  <TMPL_IF LANG_EN>
+				Last edited <TMPL_VAR MTIME> | Powered by <a href="http://ikiwiki.info">Ikiwiki</a>
+		     <TMPL_ELSE>
+				Última edición <TMPL_VAR MTIME> | Funciona con <a href="http://ikiwiki.info">Ikiwiki</a>
+		     </TMPL_IF>
+			</div>
+		</div>		
+	</div>
+
+
+<TMPL_IF EXTRA_BOTTOM_LINE>
+<TMPL_UNLESS DYNAMIC>
+
+	<div class="container bottom-line">
+		<div class="row text-center footer-extra">
+      	<div class="col">         
+		
+		    <TMPL_IF HAVE_ACTIONS>
+		    <span class="edit-element">
+		           <a href="<TMPL_VAR RECENTCHANGESURL>">RecentChanges</a>
+		        <TMPL_IF HISTORYURL>
+		           | <a href="<TMPL_VAR HISTORYURL>">History</a>
+		        </TMPL_IF>
+		        <TMPL_IF GETSOURCEURL>
+		           | <a href="<TMPL_VAR GETSOURCEURL>">Source</a>
+		        </TMPL_IF>
+		        <TMPL_IF EDITURL>
+		           | <a href="<TMPL_VAR EDITURL>" rel="nofollow">Edit</a>
+		        </TMPL_IF>
+		        <TMPL_IF PREFSURL>
+		           | <a href="<TMPL_VAR PREFSURL>">Preferences</a>
+		        </TMPL_IF>
+		        <TMPL_IF ACTIONS>
+		           |
+		           <TMPL_LOOP ACTIONS>
+		              <TMPL_VAR ACTION>
+		           </TMPL_LOOP>
+		        </TMPL_IF>
+		        <TMPL_IF COMMENTSLINK>
+		        <!--   <TMPL_VAR COMMENTSLINK> -->
+		        <TMPL_ELSE> 
+		           <TMPL_IF DISCUSSIONLINK>
+		              | <TMPL_VAR DISCUSSIONLINK>
+		           </TMPL_IF>
+		        </TMPL_IF>
+			 </span>
+		    </TMPL_IF>
+			</div>
+		</div>		
+	</div>
+	
+</TMPL_UNLESS>
+</TMPL_IF>
+	
+<TMPL_IF SHOW_THIS>
+	<TMPL_VAR WIKINAME>
+		
+	<TMPL_VAR TRAILS>
+	
+	<TMPL_IF TAGS>
+	<nav class="tags">
+		Tags:
+		<TMPL_LOOP TAGS>
+		<TMPL_VAR LINK>
+		</TMPL_LOOP>
+	</nav>
+	</TMPL_IF>
+	
+	<TMPL_IF BACKLINKS>
+	<nav id="backlinks">
+		Links:
+		<TMPL_LOOP BACKLINKS>
+		<a href="<TMPL_VAR URL>"><TMPL_VAR PAGE></a>
+		</TMPL_LOOP>
+		<TMPL_IF MORE_BACKLINKS>
+		<span class="popup">...
+			<span class="balloon">
+				<TMPL_LOOP MORE_BACKLINKS>
+				<a href="<TMPL_VAR URL>"><TMPL_VAR PAGE></a>
+				</TMPL_LOOP>
+			</span>
+		</span>
+		</TMPL_IF>
+	</nav>
+	</TMPL_IF>
+	
+	<TMPL_IF COPYRIGHT>
+	<div class="pagecopyright">
+		<a name="pagecopyright"></a>
+		<TMPL_VAR COPYRIGHT>
+	</div>
+	</TMPL_IF>		
+</TMPL_IF>
+</footer>

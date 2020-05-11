@@ -1,0 +1,38 @@
+<div class="col-lg-4 mb-4 postlist-item" id="<TMPL_VAR PAGEID>">
+<div class="card">
+  <TMPL_IF DEFAULT_IMG>
+	<div class="card-top-bbh" style="background-image: url(<TMPL_VAR DEFAULT_IMG>_small.jpg);"></div>
+  <TMPL_ELSE>
+  	<div class="card-top-bbh" style="background-image: url(/img/teaser_default.png);"></div>
+  </TMPL_IF>
+
+   <div class="card-body">
+
+   	<h5 class="card-title">
+ 	     	<TMPL_IF SHORT_TITLE>
+    	   <a href="/<TMPL_VAR PAGE>"><TMPL_VAR SHORT_TITLE></a>
+    	   <TMPL_ELSE>
+    	   <a href="/<TMPL_VAR PAGE>"><TMPL_VAR TITLE></a>
+    	   </TMPL_IF>
+		</h5>
+		
+		<TMPL_IF AUTHOR>
+		<h6 class="card-subtitle mb-2">
+			Por <TMPL_VAR AUTHOR>
+		</h6>
+		</TMPL_IF>
+		<TMPL_IF TEASERLINE>
+	    <p class="card-text teaserline"><TMPL_VAR TEASERLINE></p>
+		</TMPL_IF>
+	   <!-- <p class="card-text"><small class="text-muted publicado">Publicado: <TMPL_VAR CTIME></small></p> -->
+	</div>
+
+<!--
+	<TMPL_IF TAGS>
+   <div class="card-footer">
+    	<small class="tags text-muted"><TMPL_LOOP TAGS><span><TMPL_VAR LINK></span> </TMPL_LOOP></small>
+ 	</div>
+   </TMPL_IF>
+-->
+</div>
+</div>

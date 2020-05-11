@@ -1,0 +1,50 @@
+<TMPL_UNLESS DYNAMIC>
+   <TMPL_IF CC_BY_SA>
+				<div class="pagelicense">
+					<a name="pagelicense"></a>
+					<img src="/img/CC-BY-SA-100.png" /><br>
+					<TMPL_IF LANG_EN>
+					   The text of this article by 
+					   <TMPL_IF AUTHOR><TMPL_VAR AUTHOR><TMPL_ELSE>Bibliohack</TMPL_IF> 
+					   is published under license: 
+					<TMPL_ELSE>
+					   El texto de este artículo de 
+					   <TMPL_IF AUTHOR><TMPL_VAR AUTHOR><TMPL_ELSE>Bibliohack</TMPL_IF> 
+					   se publica bajo licencia: 
+					</TMPL_IF> <br class="hide-if-mobile">
+					<a href="https://creativecommons.org/licenses/by-sa/2.0/">
+					<TMPL_IF LANG_EN>
+					Creative Commons Attribution Share Alike 2.0
+					<TMPL_ELSE>
+					Creative Commons Atribución Compartir Igual 2.0
+					</TMPL_IF>
+					</a> <br class="hide-if-mobile">
+					<TMPL_IF LANG_EN>
+					(The rights of the images are indicated in each case)
+					<TMPL_ELSE>
+					(los derechos de las imágenes están indicados en cada caso)
+					</TMPL_IF>.
+				</div>
+	</TMPL_IF>
+   <TMPL_IF CC_BY_SA_PLUS>
+				<div class="pagelicense">
+					<a name="pagelicense"></a>
+					<img src="/img/CC-BY-SA-100.png" /><br>
+					<TMPL_IF LANG_EN>
+					   The text and images of this article (unless othewise
+					   indicated) are published under license: 
+					<TMPL_ELSE>
+					   El texto e imágenes de este artículo (excepto que se 
+					   indique lo contrario) se publican bajo licencia: 
+					</TMPL_IF> 
+					<a href="https://creativecommons.org/licenses/by-sa/2.0/">
+					<TMPL_IF LANG_EN>
+					Creative Commons Attribution Share Alike 2.0
+					<TMPL_ELSE>
+					Creative Commons Atribución Compartir Igual 2.0
+					</TMPL_IF>
+					</a>
+				</div>
+   </TMPL_IF>
+
+</TMPL_UNLESS>

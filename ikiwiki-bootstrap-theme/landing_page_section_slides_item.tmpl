@@ -1,42 +1,40 @@
-<section class="bg-light slide">
-<div class="container">
-<div class="row no-gutters">
-  <TMPL_UNLESS TEXTO_IZQ>
-  <div class="col-lg-6 col-md-8 mx-auto ejes">
-  	<div class="ejes-texto"><TMPL_VAR texto></div>
+<div class="bg-white eje-bloque"><div class="container"><div class="row no-gutters">
+  <div class="col-lg-6 col-md-8 mx-auto wrapper-texto-eje hide-if-mobile <TMPL_IF MARGIN_LEFT>hide-if-desktop</TMPL_IF>">
+  	<div class="texto-eje">
+  		<TMPL_VAR CONTENT>
+  	</div>
   </div>
-  </TMPL_UNLESS>
   <div id="carousel_bbh-<TMPL_VAR cid>" class="carousel slide col-lg-6 col-md-8 mx-auto" data-ride="carousel" data-interval="false">
     <div class="carousel-inner" role="listbox">
-      <div id="slide_uno-<TMPL_VAR cid>" class="carousel-item active" style="background-image: url(<TMPL_VAR item1_img>);">
+      <div id="slide_uno-<TMPL_VAR CID>" class="carousel-item active" style="background-image: url(<TMPL_VAR ITEM1_IMG>);">
         <div class="carousel-caption d-none d-md-block">
           <!-- <h3 class="display-4">First Slide</h3> -->
-          <p><TMPL_VAR item1_txt></p>
+          <p><TMPL_VAR ITEM1_TXT></p>
         </div>
       </div>
-      <div id="slide_dos-<TMPL_VAR cid>" class="carousel-item" style="background-image: url(<TMPL_VAR item2_img>);">
+      <div id="slide_dos-<TMPL_VAR CID>" class="carousel-item" style="background-image: url(<TMPL_VAR ITEM2_IMG>);">
         <div class="carousel-caption d-none d-md-block">
-          <p><TMPL_VAR item2_txt></p>
+          <p><TMPL_VAR ITEM2_TXT></p>
         </div>
       </div>
 	  <TMPL_IF item3_img>
-      <div id="slide_tres-<TMPL_VAR cid>" class="carousel-item" style="background-image: url(<TMPL_VAR item3_img>);">
+      <div id="slide_tres-<TMPL_VAR cid>" class="carousel-item" style="background-image: url(<TMPL_VAR ITEM3_IMG>);">
         <div class="carousel-caption d-none d-md-block">
-          <p><TMPL_VAR item3_txt></p>
+          <p><TMPL_VAR ITEM3_TXT></p>
         </div>
       </div>
       </TMPL_IF>
 	  <TMPL_IF item4_img>
-      <div id="slide_tres-<TMPL_VAR cid>" class="carousel-item" style="background-image: url(<TMPL_VAR item4_img>);">
+      <div id="slide_tres-<TMPL_VAR cid>" class="carousel-item" style="background-image: url(<TMPL_VAR ITEM4_IMG>);">
         <div class="carousel-caption d-none d-md-block">
-          <p><TMPL_VAR item4_txt></p>
+          <p><TMPL_VAR ITEM4_TXT></p>
         </div>
       </div>
       </TMPL_IF>
 	  <TMPL_IF item5_img>
-      <div id="slide_tres-<TMPL_VAR cid>" class="carousel-item" style="background-image: url(<TMPL_VAR item5_img>);">
+      <div id="slide_tres-<TMPL_VAR cid>" class="carousel-item" style="background-image: url(<TMPL_VAR ITEM5_IMG>);">
         <div class="carousel-caption d-none d-md-block">
-          <p><TMPL_VAR item5_txt></p>
+          <p><TMPL_VAR ITEM5_TXT></p>
         </div>
       </div>
       </TMPL_IF>
@@ -49,12 +47,10 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
+  </div>  
+  <div class="col-lg-6 col-md-8 mx-auto wrapper-texto-eje <TMPL_UNLESS MARGIN_LEFT>hide-if-desktop</TMPL_UNLESS>">
+  	<div class="texto-eje">
+  		<TMPL_VAR CONTENT>
+  	</div>
   </div>
-  <TMPL_IF TEXTO_IZQ>
-  <div class="col-lg-6 col-md-8 mx-auto ejes">
-  	<div class="ejes-texto"><TMPL_VAR texto></div>
-  </div>
-  </TMPL_IF>
-</div>
-</div>
-</section>
+</div></div></div>

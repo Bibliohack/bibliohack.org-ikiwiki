@@ -1,5 +1,6 @@
 /src/
 /src.git/
+/draft/
 
 wiki.setup.yaml
 mailgun.yaml

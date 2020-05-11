@@ -1,0 +1,34 @@
+      <ul class="list-unstyled components">
+        <TMPL_IF EDITURL>
+         <li class="nav-item"><a class="nav-link" href="<TMPL_VAR EDITURL>" rel="nofollow">Editar</a></li>
+        </TMPL_IF>
+        <TMPL_IF RECENTCHANGESURL>
+         <li class="nav-item"><a class="nav-link" href="<TMPL_VAR RECENTCHANGESURL>">RecentChanges</a></li>
+        </TMPL_IF>
+        <TMPL_IF HISTORYURL>
+         <li class="nav-item"><a class="nav-link" href="<TMPL_VAR HISTORYURL>">Historial</a></li>
+        </TMPL_IF>
+        <TMPL_IF GETSOURCEURL>
+         <li class="nav-item"><a class="nav-link" href="<TMPL_VAR GETSOURCEURL>">Código Fuente</a></li>
+        </TMPL_IF>
+        <TMPL_IF PREFSURL>
+         <li class="nav-item"><a class="nav-link" href="<TMPL_VAR PREFSURL>">Preferencias</a></li>
+        </TMPL_IF>
+        <TMPL_IF ACTIONS>
+         <a class="nav-item dropdown-toggle" href="#" 
+           id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" 
+           aria-expanded="false">Acciones</a>
+           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <TMPL_LOOP ACTIONS>
+               <TMPL_VAR ACTION>
+            </TMPL_LOOP>
+           </div>
+        </TMPL_IF>
+        <TMPL_IF COMMENTSLINK>
+         <li class="nav-item"><TMPL_VAR COMMENTSLINK></li>
+        <TMPL_ELSE>
+         <TMPL_IF DISCUSSIONLINK>
+         <li class="nav-item"><TMPL_VAR DISCUSSIONLINK></li>
+         </TMPL_IF>
+        </TMPL_IF>
+      </ul>
