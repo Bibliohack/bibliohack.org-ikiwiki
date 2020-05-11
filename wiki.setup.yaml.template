@@ -41,6 +41,7 @@ rcs: git
 # plugins to add to the default configuration
 add_plugins:
 - goodstuff
+- html
 - websetup
 - sidebar
 - trail
@@ -54,17 +55,22 @@ add_plugins:
 - uploadmedia
 - meta
 - field
+- template
 - ftemplate
 - edittemplate
 - osm
-# - blogspam
-# - comments
+- translate
+- ymlfront
+
 # plugins to disable
-disable_plugins: [ htmlscrubber ]
+disable_plugins:
+- htmlscrubber
+- openid
+- emailauth
 # additional directory to search for template files
 templatedir: {{{IKIDIR}}}/ikiwiki-bootstrap-theme
 # base wiki source location
-underlaydir: /usr/share/ikiwiki/basewiki
+underlaydir: {{{IKIDIR}}}/basewiki
 # display verbose messages?
 #verbose: 1
 # log to syslog?
@@ -88,7 +94,7 @@ default_pageext: mdwn
 # extension to use for html files
 htmlext: html
 # strftime format string to display date
-timeformat: '%c'
+timeformat: '%d %b %Y'
 # UTF-8 locale to use
 #locale: en_US.UTF-8
 # put user pages below specified page
@@ -101,16 +107,19 @@ hardlink: 0
 #umask: public
 # group for wrappers to run in
 #wrappergroup: ikiwiki
-# extra library and plugin directory
+# extra library and plugin directories
+libdirs: []
+# extra library and plugin directory (searched after libdirs)
 libdir: {{{IKIDIR}}}/.ikiwiki
 # environment variables
-ENV: {}
+#ENV: {}
 # time zone name
-#timezone: US/Eastern
+timezone: :/etc/localtime
 # regexp of normally excluded files to include
 #include: ^\.htaccess$
 # regexp of files that should be skipped
 #exclude: ^(*\.private|Makefile)$
+exclude: (?^:\.sh$)
 # specifies the characters that are allowed in source filenames
 wiki_file_chars: -[:alnum:]+/.:_
 # allow symlinks in the path leading to the srcdir (potentially insecure)
@@ -120,6 +129,10 @@ cookiejar:
   file: {{{IKIDIR}}}/.ikiwiki/cookies
 # set custom user agent string for outbound HTTP requests e.g. when fetching aggregated RSS feeds
 useragent: ikiwiki/3.20141016.4+deb8u1
+# theme has a responsive layout? (mobile-optimized)
+responsive_layout: 1
+# try harder to produce deterministic output
+deterministic: 0
 
 ######################################################################
 # core plugins
@@ -143,9 +156,9 @@ git_wrapper: {{{IKIDIR}}}/src.git/hooks/post-update
 # gitweb url to show a diff ([[file]], [[sha1_to]], [[sha1_from]], [[sha1_commit]], and [[sha1_parent]] substituted)
 #diffurl: {{{URL}}}/gitweb.cgi?p=wiki.git;a=blobdiff;f=[[file]];h=[[sha1_to]];hp=[[sha1_from]];hb=[[sha1_commit]];hpb=[[sha1_parent]]
 # where to pull and push changes (set to empty string to disable)
-#gitorigin_branch: origin
+gitorigin_branch: origin
 # branch that the wiki is stored in
-#gitmaster_branch: master
+gitmaster_branch: master
 
 # htmlscrubber plugin
 # PageSpec specifying pages not to scrub
@@ -203,7 +216,7 @@ locked_pages: '* and !postcomment(*)'
 
 # passwordauth plugin
 # a password that must be entered when signing up for an account
-#account_creation_password: s3cr1t
+#account_creation_password: password
 # cost of generating a password using Authen::Passphrase::BlowfishCrypt
 #password_cost: 8
 
@@ -222,7 +235,7 @@ locked_pages: '* and !postcomment(*)'
 
 # mdwn plugin
 # enable multimarkdown features?
-#multimarkdown: 0
+multimarkdown: 1
 # disable use of markdown discount?
 #nodiscount: 0
 
@@ -264,7 +277,7 @@ add_underlays:
 
 # attachment plugin
 # enhanced PageSpec specifying what attachments are allowed
-allowed_attachments: mimetype(image/*) or mimetype(application/pdf) or mimetype(video/mp4) and maxsize(10240kb)
+allowed_attachments: mimetype(image/*) or mimetype(application/pdf) or mimetype(video/mp4) and maxsize(5120kb)
 # virus checker program (reads STDIN, returns nonzero if virus found)
 #virus_checker: clamdscan -
 
@@ -401,9 +414,9 @@ archive_pagespec: page(posts/*) and !*/Discussion
 
 # recentchanges plugin
 # name of the recentchanges page
-#recentchangespage: recentchanges
+recentchangespage: recentchanges
 # number of changes to track
-#recentchangesnum: 100
+recentchangesnum: 100
 
 # rsync plugin
 # command to run to sync updated pages
@@ -424,3 +437,9 @@ tag_autocreate_commit: 1
 # field plugin
 field_register: 
 - meta
+
+translate_master_language: es|Español
+translate_slave_languages:
+   - en|English
+# translate_translatable_pages: "posts or field_item(translatable yes)"
+translate_translatable_pages: "none" #"posts or index"
