@@ -16,9 +16,11 @@
 
 # ToDo
 # 0) check if ikiwiki installeds (and plugins)
+     # git-lfs (git large file storage)
      # libyaml-perl (dependencia de ymlfront)
      # libimage-magick-perl (dependencia de uploadmedia)
      # libsort-naturally-perl (dependencia de field)
+     # libxml-writer-perl (dependencia de ?)
 # 1) if param not defined read value from user
 # 2) clone SRCURL git repo in src/
 # 3) replace values in wiki.setup.yaml.template and create wiki.setup.yaml
