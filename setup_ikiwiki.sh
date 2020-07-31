@@ -21,6 +21,7 @@
      # libimage-magick-perl (dependencia de uploadmedia)
      # libsort-naturally-perl (dependencia de field)
      # libxml-writer-perl (dependencia de ?)
+     # libtext-multimarkdown-perl (para usar por ej markdown=1 en el html)
 # 1) if param not defined read value from user
 # 2) clone SRCURL git repo in src/
 # 3) replace values in wiki.setup.yaml.template and create wiki.setup.yaml
