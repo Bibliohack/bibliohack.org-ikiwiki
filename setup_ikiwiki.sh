@@ -26,3 +26,8 @@
 # 2) clone SRCURL git repo in src/
 # 3) replace values in wiki.setup.yaml.template and create wiki.setup.yaml
 # 4) ikiwiki --setup wiki.setup.yaml (hace falta crear manualmente el src.git repo?)
+# 5) para send_mail.pl: 
+      # sudo apt-get install cpanm build-essential
+      # sudo cpanm Capture::Tiny 
+      # sudo cpanm JSON::Parse
+      # sudo cpanm Email::Valid
