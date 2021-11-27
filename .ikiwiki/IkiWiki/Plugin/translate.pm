@@ -654,10 +654,10 @@ sub mybeautify_urlpath ($) {
 
 	my $res=$origsubs{'beautify_urlpath'}->($url);
 	if (defined $config{translate_link_to} && $config{translate_link_to} eq "negotiated") {
-		$res =~ s!/\Qindex.$master_language_code.$config{htmlext}\E$!/!;
-		$res =~ s!/\Qindex.$config{htmlext}\E$!/!;
+		$res =~ s!/\Q$master_language_code.$config{htmlext}\E$!/!;
+		$res =~ s!/\Q$config{htmlext}\E$!/!;
 		map {
-			$res =~ s!/\Qindex.$_.$config{htmlext}\E$!/!;
+			$res =~ s!/\Q$_.$config{htmlext}\E$!/!;
 		} @slavelanguages;
 	}
 	return $res;
@@ -674,10 +674,10 @@ sub mytargetpage ($$;$) {
 			return $masterpage . "/" . $filename . "." . $lang . "." . $ext;
 		}
 		elsif (! $config{usedirs} || $masterpage eq 'index') {
-			return $masterpage . "." . $lang . "." . $ext;
+			return $lang . "." . $ext;
 		}
 		else {
-			return $masterpage . "/index." . $lang . "." . $ext;
+			return $masterpage . "/" . $lang . "." . $ext;
 		}
 	}
 	return $origsubs{'targetpage'}->($page, $ext, $filename);
@@ -693,7 +693,7 @@ sub myurlto ($;$$) {
 	    && $config{translate_link_to} eq "current"
 	    && istranslatable('index')) {
 		if (defined $from) {
-			return IkiWiki::beautify_urlpath(IkiWiki::baseurl($from) . "index." . lang($from) . ".$config{htmlext}");
+			return IkiWiki::beautify_urlpath(IkiWiki::baseurl($from) . lang($from) . ".$config{htmlext}");
 		}
 		else {
 			return $origsubs{'urlto'}->($to,$from,$absolute);
@@ -1166,7 +1166,7 @@ sub ishomepage ($) {
 	my $page = shift;
 
 	return 1 if $page eq 'index';
-	map { return 1 if $page eq 'index.'.$_ } @slavelanguages;
+	map { return 1 if $page eq $_ } @slavelanguages;
 	return undef;
 }
 
