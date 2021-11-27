@@ -851,8 +851,27 @@ sub match_a_field_item ($$) {
 	for (my $i = 0; $i < @{$val}; $i++)
 	{
 	    my $itemval = ${val}->[$i];
-	    if ($itemval=~$regexp) {
-		return IkiWiki::SuccessReason->new("$regexp matches $field_name of $page", $page => $IkiWiki::DEPEND_CONTENT, "" => 1);
+	    #if(ref $itemval eq 'ARRAY') {
+	    #	print "debug: itemval es un array! $field_name $glob $page\n";
+	    #}
+	    if(ref $itemval eq 'HASH') 
+	    {
+	       # print "debug: itemval es un hash! $field_name $glob $page\n";
+	       foreach my $value (values %{$itemval})
+	       {
+	         if(defined $value){
+		      if ($value=~$regexp) 
+		      {
+			  return IkiWiki::SuccessReason->new("$regexp matches $field_name of $page", $page => $IkiWiki::DEPEND_CONTENT, "" => 1);
+		      }
+		     }
+	       }
+	    }
+	    else
+		{
+	       if ($itemval=~$regexp) {
+		   return IkiWiki::SuccessReason->new("$regexp matches $field_name of $page", $page => $IkiWiki::DEPEND_CONTENT, "" => 1);
+	       }
 	    }
 	}
 	# not found
