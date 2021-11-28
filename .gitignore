@@ -1,7 +1,7 @@
 /src/
 /src.git/
 /draft/
-/media_underlay
+/media_underlay/uploads/
 
 wiki.setup.yaml
 mailgun.yaml
