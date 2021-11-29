@@ -1,11 +1,7 @@
 <div class="section-block p-0" id="portfolio">
    <div class="container-fluid p-0">
-      <div class="row no-gutters">
-      <TMPL_IF LANG_EN>
-			[[!inline pages="field_item(featured yes) and lang(en)" show="<TMPL_VAR SHOW_ITEMS>" template="inlinepage_featured" feeds=no postform=no]]
-		<TMPL_ELSE>	
-    		[[!inline pages="field_item(featured yes) and lang(es)" show="<TMPL_VAR SHOW_ITEMS>" template="inlinepage_featured" feeds=no postform=no]]
-      </TMPL_IF>
+      <div class="row no-gutters">  
+    		[[!inline pages="field_item(featured yes) and lang(<TMPL_VAR LANG_ITEMS>)" show="<TMPL_VAR SHOW_ITEMS>" template="inlinepage_featured" feeds=no postform=no]]
 		</div>
 	</div>
 </div>
