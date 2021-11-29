@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # bash create_unitegallery.sh uploads/galleries/nombre_galeria/
-
+currentpath=$(pwd)
 path="${1%/}"
 # echo "path: '$path'"
 cd "$path" || { >&2 echo "error! no existe '$path'"; exit 1; }
@@ -36,6 +36,7 @@ done
 
 echo "</div>"
 
-ikiwiki --setup /opt/ikiwiki/bibliohack/wiki.setup.yaml || {
+cd $currentpath
+ikiwiki --setup ../wiki.setup.yaml || {
 	 >&2 echo "error! fallo ikiwiki config"; exit 1; 
 }
