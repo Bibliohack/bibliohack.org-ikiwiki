@@ -41,10 +41,18 @@
 	   <!-- <p class="card-text"><small class="text-muted publicado">Publicado: <TMPL_VAR CTIME></small></p> -->
 	</div>
 
-	<TMPL_IF TAGS>
-   <div class="card-footer">
-    	<small class="tags text-muted"><TMPL_LOOP TAGS><span><TMPL_VAR LINK></span> </TMPL_LOOP></small>
- 	</div>
+   <TMPL_IF TRANSLATED_TAGS>
+    <TMPL_IF LANG_EN>
+    <div class="card-footer">
+     <small class="tags text-muted"><TMPL_LOOP TRANSLATED_TAGS><span><a href="/tags/<TMPL_VAR TAG>/en.html"><TMPL_VAR TRANSLATED></a></span> </TMPL_LOOP></small>
+    </div>
+    </TMPL_IF>
+   <TMPL_ELSE>
+    <TMPL_IF TAGS>
+	 <div class="card-footer">
+      <small class="tags text-muted"><TMPL_LOOP TAGS><span><TMPL_VAR LINK></span> </TMPL_LOOP></small>
+	 </div>
+    </TMPL_IF>
    </TMPL_IF>
 
 </div>

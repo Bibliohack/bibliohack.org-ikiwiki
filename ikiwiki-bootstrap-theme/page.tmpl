@@ -24,7 +24,7 @@
             <TMPL_UNLESS DYNAMIC>
             <div class="bbh-breadcrumb">
           	   <TMPL_IF LANG_EN>
-          	   <a href="/index.en.html">bibliohack</a> / <a href="/posts/index.en.html">posts</a>
+          	   <a href="/en.html">bibliohack</a> / <a href="/posts/en.html">posts</a>
           	   <TMPL_ELSE>
           	   <TMPL_LOOP PARENTLINKS><a href="<TMPL_VAR URL>"><TMPL_VAR PAGE></a> / </TMPL_LOOP>
           	   <!-- <span class="active"><TMPL_VAR TITLE></span> -->
@@ -111,10 +111,18 @@
 			  </div>
 			  		  
 			  <TMPL_UNLESS DYNAMIC>
-			   <TMPL_IF TAGS>
-				<div class="tags">
-			   <TMPL_LOOP TAGS><span>#<TMPL_VAR LINK></span> </TMPL_LOOP>
-				</div>
+			   <TMPL_IF TRANSLATED_TAGS>
+			    <TMPL_IF LANG_EN>
+			    <div class="tags">
+			     <TMPL_LOOP TRANSLATED_TAGS><span>#<a href="/tags/<TMPL_VAR TAG>/en.html"><TMPL_VAR TRANSLATED></a></span> </TMPL_LOOP>	
+			    </div>
+			    </TMPL_IF>
+			   <TMPL_ELSE>
+			    <TMPL_IF TAGS>
+				 <div class="tags">
+		          <TMPL_LOOP TAGS><span>#<TMPL_VAR LINK></span> </TMPL_LOOP>
+				 </div>
+			    </TMPL_IF>
 			   </TMPL_IF>
 
 			   <TMPL_VAR TRAILS>
@@ -235,7 +243,7 @@
       </TMPL_IF>
 		<TMPL_IF AJAX_CONTENT>
 			$(document).ready(function(){
-				$("#ajax_content").load("/ajax/<TMPL_VAR AJAX_CONTENT>", function (){
+				$("#ajax_content").load("/ajax/<TMPL_VAR AJAX_CONTENT>_<TMPL_IF LANG_CODE><TMPL_VAR LANG_CODE><TMPL_ELSE>es</TMPL_IF>", function (){
 				   // remove teaser if the same page as main or remove last 
 				   // element to avoid breaking the grid
 					var samePage = $("#ajax_content #<TMPL_VAR PAGEID>");
