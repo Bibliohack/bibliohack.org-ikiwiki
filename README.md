@@ -19,24 +19,25 @@ article content (that has been copied from the original language) must be fully 
 ### Tag translation
 
 We use a provisional method. In the translated page you must add a hash field called "translated_tags" like this
---
+
+```
 translated_tags:
  - tag: red
    tranlated: rojo
  - tag: green
    translated: verde
---
+```
 
 A bug (?) in tagged() pagespec exclude translated pages from the list obtained with inline directive, then we use `field_item(translated_tags tag)` from
 [field pagespec](https://ikiwiki.info/plugins/contrib/field/#index5h2) that select pages with 'translated_tags' field and tag. To do this we modified field 
 plugin to enable regex into hash object.
 
-### Upload media
+### Uploaded media
 
 Uploadmedia plugin upload images to a self-created folder with the name of the page in `/media_underlay/uploads/...` in order to keep media out 
-of the `src` repository, and returns the path of the image to place in yaml meta header or markdown content.
+of the `src` repository, and when the image has been uploaded the page returns the path of the image to place in yaml meta header or markdown content.
 
 ## Content and Media
 
-The content of website is located in <https://github.com/Bibliohack/bibliohack.org-contents> and the '/media_undelay/uploads/' media is managed with rclone or rsync.
+The content of website is located in <https://github.com/Bibliohack/bibliohack.org-contents> and the `/media_undelay/uploads/` media file is managed with `rclone` or `rsync`.
 
