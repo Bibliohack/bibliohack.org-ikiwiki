@@ -1,0 +1,3 @@
+#!/bin/bash
+
+# rclone sync ${RCLONE_DRIVE}: ${IKIDIR}/media_underlay/uploads 

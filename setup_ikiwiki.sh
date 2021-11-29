@@ -3,30 +3,33 @@
 
 #  Params:
 
-#  IKIDIR </path/to/this/ikiwiki> (PWDDIR)
+#  IKIDIR=/path/to/this/ikiwiki (PWDDIR)
 
-#  IKINAME=<ikiwiki name>
-#  ADMIN_USER <user admin>
-#  ADMIN_EMAIL <my@email.com>
+#  IKINAME="ikiwiki name"
+#  ADMIN_USER= <user admin>
+#  ADMIN_EMAIL= <my@email.com>
 
-#  DESTDIR </var/www/path/public_html>
-#  URL <http://www.example.com>
+#  DESTDIR= </var/www/path/public_html>
+#  URL= <http://www.example.com>
 
-#  GIT_REMOTE <git@github.com:Bibliohack/bibliohack.org-contents.git>
+#  GIT_REMOTE= <git@github.com:Bibliohack/bibliohack.org-contents.git>
 
+#  MAILGUN=path/to/mailgun.yaml
 
-#  SRCURL <https:/github.com/user/mkdn-content-repo>
+#  RCLONE_DRIVE=<rclone drive name> (without ':')
 
 # ToDo
 # 0) check if ikiwiki installeds (and plugins)
-     # git-lfs (git large file storage)
      # libyaml-perl (dependencia de ymlfront)
      # libimage-magick-perl (dependencia de uploadmedia)
      # libsort-naturally-perl (dependencia de field)
      # libxml-writer-perl (dependencia de ?)
      # libtext-multimarkdown-perl (para usar por ej markdown=1 en el html)
-# 1) if param not defined read value from user
-# 2) clone SRCURL git repo in src/
+     
+# 1) if param not defined ask the user values with read
+
+# 2) clone GIT_REMOTE git repo in src/
+
 #       cd ${IKIDIR}
 # 		git clone ${GIT_REMOTE} src
 
@@ -71,6 +74,7 @@
 # 	translate_slave_languages:
 # 	  - en|English
 # 	translate_translatable_pages: "posts or field_item(translatable yes) or index
+# (nota: 'post' pareciera que esta de mas?)
 
 # para habilitar edicion web verificar que esten comentados:
 # 	#lockedit plugin
@@ -89,3 +93,14 @@
       # sudo cpanm Capture::Tiny 
       # sudo cpanm JSON::Parse
       # sudo cpanm Email::Valid
+
+# copiar send_mail.pl de send_mail.pl.template directamente a ${DESTDIR}/send_mail.pl 
+# agregando la ruta a la configuracion en ${MAILGUN}
+# chmod a+x ${DESTDIR}/send_mail.pl 
+
+# 6) media files
+#    draft debera clonar la carpeta en /media_underlay/uploads usando rclone (hay que configurar 
+#    previamente rclone con la unidad del drive)
+#    prod puede clonar del drive o directamente haciendo rsync del media_underlay/uploads desde draft (?)
+
+

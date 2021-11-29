@@ -9,7 +9,7 @@ use JSON::Parse ':all';
 
 use Capture::Tiny qw/ capture /;
 
-my $config = LoadFile('/opt/ikiwiki/bibliohack/mailgun.yaml') or die "ERROR: No se pudo cargar el archivo de configuración";
+my $config = LoadFile('{{MAILGUN_YAML}}') or die "ERROR: No se pudo cargar el archivo de configuración";
 my $host = $config->{host}; 
 my $key = $config->{key}; 
 my $target_mail = $config->{target_mail}; 
