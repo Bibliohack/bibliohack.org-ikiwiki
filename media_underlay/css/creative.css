@@ -109,6 +109,18 @@ h6 {
 	background: white;
 }
 
+.section-block.mp4video {
+	padding: 4rem 0;
+	background-color: rgba(255,255,255,0.9);
+}
+
+.section-block.mp4video h3 {
+   line-height: 2.2rem;
+   margin-bottom: 1.5rem;
+   font-size: 2rem;
+   color: #882d2d;
+}
+
 .section-block > p {
 	display: none; /* parrafos extra que imprime markdown */
 }
@@ -1608,4 +1620,19 @@ footer .container.bottom-line {
 .trailarrow {
    width: 1.5rem;
    display: inline-block;
+}
+
+/* */
+
+.backgroundSlideshowLayer {
+	max-width: 100vw;
+}
+
+/* */
+
+#footer .fa, #footer .fab, #footer .fad, 
+#footer .fal, #footer .far, #footer .fas {
+   font-size: 1.3rem;
+   margin-right: 3px;
+   vertical-align: middle;
 }
