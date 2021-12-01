@@ -1,0 +1,19 @@
+<div class="section-block mp4video background-wrapper features-header" id="<TMPL_VAR SECTION_ID>">
+   <div class="container">
+      <div class="row justify-content-md-center">
+         <div class="col-lg-6 features-video">
+         <TMPL_IF VIDEO_LINK><a target="_blank" href="<TMPL_VAR VIDEO_LINK>"></TMPL_IF>
+            <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" class="video-mini">
+               <source src="<TMPL_VAR VIDEO>" type="video/mp4">
+            </video>
+         <TMPL_IF VIDEO_LINK></a></TMPL_IF>
+         </div>
+         <div class="col-lg-6 features-intro">
+            <h3><TMPL_VAR TITLE></h3>
+            <p>
+               <TMPL_VAR TEXT>
+            </p>
+         </div>
+      </div>
+   </div>
+</div>
