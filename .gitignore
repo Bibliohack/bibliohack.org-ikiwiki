@@ -4,4 +4,6 @@
 /media_underlay/uploads/
 
 wiki.setup.yaml
+wiki-draft.setup.yaml
+wiki-production.setup.yaml
 mailgun.yaml
