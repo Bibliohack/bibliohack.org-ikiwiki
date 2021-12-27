@@ -785,6 +785,12 @@ body.postlist.taglist .pageheader .container .summary {
 	max-width: 500px
 }
 
+body.postlist.taglist .pageheader .container .addendum {
+   margin-top: -2rem;
+   margin-bottom: 2rem;
+   padding-bottom: 1rem;
+}
+
 #ajax_content .card-footer,
 body.postlist .card-footer {
 	line-height: 1.5rem;
