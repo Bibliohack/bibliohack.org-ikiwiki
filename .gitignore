@@ -1,6 +1,7 @@
 /src/
 /src.git/
 /draft/
+/production/
 /media_underlay/uploads/
 
 draft.setup.yaml
